@@ -1,6 +1,8 @@
+import 'package:appbovconfort/itu_rs.dart';
 import 'package:flutter/material.dart';
 import 'package:appbovconfort/dados.dart';
 import 'package:sizer/sizer.dart';
+import 'package:appbovconfort/itu_rs.dart';
 
 class Browse extends StatefulWidget {
   const Browse({super.key});
@@ -52,18 +54,6 @@ class _HomeState extends State<Browse> {
                       margin: EdgeInsets.only(bottom: screenHeight * .1),
                       child: ElevatedButton.icon(
                         style: raisedButtonStyle,
-                        onPressed: () {},
-                        icon: Icon(Icons.calculate, size: 50,),
-                        label: Text('Calcular o ITU',
-                            style: TextStyle(
-                                fontSize: 18.sp, fontWeight: FontWeight.w800)),
-                      )),
-                  Container(
-                      width: size.width * .7,
-                      height: screenHeight * .2,
-                      margin: EdgeInsets.only(bottom: screenHeight * .1),
-                      child: ElevatedButton.icon(
-                        style: raisedButtonStyle,
                         onPressed: () {
                           Navigator.push(
                               context,
@@ -78,6 +68,24 @@ class _HomeState extends State<Browse> {
                               fontWeight: FontWeight.w800,
                             )),
                       )),
+                  Container(
+                      width: size.width * .7,
+                      height: screenHeight * .2,
+                      margin: EdgeInsets.only(bottom: screenHeight * .1),
+                      child: ElevatedButton.icon(
+                        style: raisedButtonStyle,
+                        onPressed: () {
+                           Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ITU_RS()));
+                        },
+                        icon: Icon(Icons.calculate, size: 50,),
+                        label: Text('Calcular o ITU',
+                            style: TextStyle(
+                                fontSize: 18.sp, fontWeight: FontWeight.w800)),
+                      )),
+                  
                   Container(
                     width: size.width * .8,
                     height: screenHeight * .05,

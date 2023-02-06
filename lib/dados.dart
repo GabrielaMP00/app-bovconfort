@@ -53,20 +53,6 @@ class _HomeState extends State<Dados> {
                       margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
                         style: raisedButtonStyle,
-                        onPressed: () {},
-                        icon: Icon(Icons.my_library_books, size: 50,),
-                        label: Text('Leituras Complementares',textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
-                      ))
-                    
-                  ),
-                  Container(
-                    
-                      width: size.width *.7,
-                      height: screenHeight * .15,
-                      margin: EdgeInsets.only(bottom: screenHeight*.12),
-                      child: ElevatedButton.icon(
-                        style: raisedButtonStyle,
                         onPressed: () => {const Dados()},
                         icon: Icon(Icons.table_chart, size: 50,),
                         label: Text('Tabela de\n Valores e Faixas', textAlign: TextAlign.center,
@@ -86,6 +72,20 @@ class _HomeState extends State<Dados> {
                         label: Text('Efeitos do \nEstresse Térmico', textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w800, )),
                       )
+                    
+                  ),
+                  Container(
+                    
+                      width: size.width *.7,
+                      height: screenHeight * .15,
+                      margin: EdgeInsets.only(bottom: screenHeight*.12),
+                      child: ElevatedButton.icon(
+                        style: raisedButtonStyle,
+                        onPressed: () {},
+                        icon: Icon(Icons.my_library_books, size: 50,),
+                        label: Text('Leituras Complementares',textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                      ))
                     
                   ),
                  

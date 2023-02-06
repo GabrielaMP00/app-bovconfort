@@ -75,4 +75,8 @@ flutter:
           style: italic
         - asset: fonts/OpenSans-ExtraBold.ttf
           weight: 800
+        - asset: fonts/OpenSans-Bold.ttf
+          weight: 700
+        - asset: fonts/OpenSans-SemiBold.ttf
+          weight: 600
   uses-material-design: true
