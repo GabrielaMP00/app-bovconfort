@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/browse.dart';
-import 'package:appbovconfort/itu_br.dart';
+import 'package:appbovconfort/itu_rs.dart';
 
-class ITU_RS extends StatefulWidget {
-  const ITU_RS({super.key});
+class ITU_BR extends StatefulWidget {
+  const ITU_BR({super.key});
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<ITU_RS> {
+class _HomeState extends State<ITU_BR> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -43,7 +43,7 @@ class _HomeState extends State<ITU_RS> {
                     height: screenHeight * .1,
                     //margin: EdgeInsets.only(bottom: screenHeight * .03),
                     child: Center(
-                      child:Text("DESCUBRA O ITU - RS",
+                      child:Text("DESCUBRA O ITU - BR",
                         style: TextStyle(fontSize: 25.sp, fontFamily: "OpenSans", fontWeight: FontWeight.w700)),
                   )),
                   
@@ -75,52 +75,65 @@ class _HomeState extends State<ITU_RS> {
                   )),
                   Container(
                     height: screenHeight * .25,
-                    width: size.width * .85,
+                    width: size.width * .9,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.yellow[200]),
                     //margin: EdgeInsets.only(bottom: screenHeight * .03),
                     child: Center(
-                      child:Text(" 1. Acesse o Site da SIMAGRO \n 2. Selecione sua localidade \n 3. Escolha de um a cinco valores do ITU na(s) data(s) desejada(s) no gráfico \n 4.Digite o valor do ITU abaixo",
+                      child:Text(" 1. Acesse o Site da INMET/SISDAGRO \n 2. Selecione sua localidade \n 3. Escolha de um a cinco dias para calcular \n 4.Digite os valores de Temperatura Mínima e Máxima Abaixo",
                         style: TextStyle(fontSize: 13.sp, fontFamily: "OpenSans", fontWeight: FontWeight.w400)),
                   )),
                   Container(
                     //color: Colors.white,
                     height: screenHeight * .12,
-                    margin: EdgeInsets.only(bottom: screenHeight * .03),
+                    margin: EdgeInsets.only(bottom: screenHeight * .02),
                     child: Center(
                       child:TextButton( 
                         onPressed: () {  }, 
-                        child: Text("Clique aqui para acessar \n o site da SIMAGRO",
+                        child: Text("Clique aqui para acessar \n o site da INMET",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontStyle: FontStyle.italic,fontSize: 14.sp, fontFamily: "OpenSans", fontWeight: FontWeight.w700, color: Colors.red),)),
                     )),
                   Row(
-                    
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        //color: Colors.orange,
-                        height: screenHeight * .1,
-                        width: size.width * .5,
-                        alignment: Alignment.topRight,
-                        //margin: EdgeInsets.only(bottom: screenHeight * .03),
-                        child: Center(
-                          child: Text("ITU   = ",
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 25.sp, fontFamily: "OpenSans", fontWeight: FontWeight.w700)),
-                      )),
-                      SizedBox(
-                        width: 160,
-                          child: TextField(
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                              LengthLimitingTextInputFormatter(4),
-                            ],
-                            decoration: const InputDecoration( hintText: "0.00", border: OutlineInputBorder(), fillColor: Colors.white),
-                            style: TextStyle(fontSize: 18),
-                            
-                          ),
-                        ),
-                    ],
+                  Column(children: <Widget>[
+                    Text("Máx Temperatura"),
+                    SizedBox(
+                      width: 160,
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(4),
+                        ],
+                        decoration: const InputDecoration(
+                            hintText: "0.00",
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white),
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ]),
+                  SizedBox(width: 10),
+                   Column(children: <Widget>[
+                    Text("Min Temperatura"),
+                    SizedBox(
+                      width: 160,
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(4),
+                        ],
+                        decoration: const InputDecoration(
+                            hintText: "0.00",
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white),
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ]),
+                  ],
                   ),
                   SizedBox(height: screenHeight * .07),
                   Row(
@@ -132,12 +145,7 @@ class _HomeState extends State<ITU_RS> {
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
                         style: raisedButtonStyle,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ITU_BR()));
-                        },
+                        onPressed: () => {},
                         icon: Icon(Icons.plus_one, size: 20,),
                         label: Text('Adicionar', textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w800, )),
