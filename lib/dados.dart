@@ -18,16 +18,8 @@ class _HomeState extends State<Dados> {
           color: Colors.teal[50],
         ),);
     var size = MediaQuery.of(context).size;
-    var screenHeight = (size.height - kToolbarHeight - kBottomNavigationBarHeight) - MediaQuery.of(context).padding.top;
-    final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-  foregroundColor: Colors.black,
-  backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-  minimumSize: Size(88, 36),
-  padding: EdgeInsets.symmetric(horizontal: 16),
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(10)),
-  ),
-);
+    var screenHeight = (size.height - appBar.preferredSize.height) -
+        MediaQuery.of(context).padding.top;
     return Scaffold(
       backgroundColor: Colors.teal[50],
         appBar: appBar,
@@ -39,57 +31,64 @@ class _HomeState extends State<Dados> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    
-                    height: screenHeight*.2,
+                    height: screenHeight*.15,
                     margin: EdgeInsets.only(bottom: screenHeight*.03),
-                    child:Center(
-                    child: Text("Acesse o conteúdo desejado:", style: TextStyle(fontSize: 20.sp)),
-                  )),
-                  
-                  Container(
-                    
-                      width: size.width *.7,
-                      height: screenHeight * .15,
-                      margin: EdgeInsets.only(bottom: screenHeight*.12),
-                      child: ElevatedButton.icon(
-                        style: raisedButtonStyle,
-                        onPressed: () => {const Dados()},
-                        icon: Icon(Icons.table_chart, size: 50,),
-                        label: Text('Tabela de\n Valores e Faixas', textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w800, )),
-                      )
-                    
+                    child: Text("ACESSE OS CONTEÚDOS:", style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w800)),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                    Column(children: [
+                      FloatingActionButton.large(
+                          backgroundColor: Color.fromRGBO(136, 221, 198, 1),
+                          onPressed: () {},
+                          child: Image(
+                            image: AssetImage("assets/table.png"),
+                            height: size.height*.1,
+                          )),
+                          SizedBox(height: screenHeight*.02),
+                          Text(
+                            'Tabela de \n Valores e Faixas',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Colors.black),
+                          )
+                    ]),
+                    Column(children: [
+                      FloatingActionButton.large(
+                          backgroundColor: Color.fromRGBO(136, 221, 198, 1),
+                          onPressed: () {},
+                          child: Image(
+                            image: AssetImage("assets/termometro.png"),
+                            height: size.height*.1,
+                          )),
+                          SizedBox(height: screenHeight*.02),
+                          Text(
+                            'Efeitos do \nEstresse Térmico',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Colors.black),
+                          )
+                    ])
+                  ]),
+                  SizedBox(height: size.height*.08),
                   Container(
-                    
-                      width: size.width *.7,
-                      height: screenHeight * .15,
-                      margin: EdgeInsets.only(bottom: screenHeight*.12),
-                      child: ElevatedButton.icon(
-                        style: raisedButtonStyle,
-                        onPressed: () {},
-                        icon: Icon(Icons.device_thermostat, size: 50.0),
-                        label: Text('Efeitos do \nEstresse Térmico', textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w800, )),
-                      )
-                    
-                  ),
-                  Container(
-                    
-                      width: size.width *.7,
-                      height: screenHeight * .15,
-                      margin: EdgeInsets.only(bottom: screenHeight*.12),
-                      child: ElevatedButton.icon(
-                        style: raisedButtonStyle,
-                        onPressed: () {},
-                        icon: Icon(Icons.my_library_books, size: 50,),
-                        label: Text('Leituras Complementares',textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
-                      ))
-                    
-                  ),
-                 
-                 
+                      width: size.width * .7,
+                      height: screenHeight * .3,
+                      // margin: EdgeInsets.only(bottom: screenHeight * .12),
+                      child: Column(
+                        children: [
+                          FloatingActionButton.large(
+                            backgroundColor: Color.fromRGBO(136, 221, 198, 1),
+                            onPressed: () {},
+                            child: Image(image: AssetImage("assets/book.png"), height: size.height*.1)
+                          ),
+                          SizedBox(height: screenHeight*.02),
+                          Text(
+                            "Leituras \n Complementares",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Colors.black),
+                          )
+                        ],
+                      )),
                 ])));
   }
 }

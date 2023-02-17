@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                     SizedBox(
                       width: 80,
                       height: 80,
-                      child: Image.asset('assets/Logo_BovConfort.png'),
+                      child: Image.asset('assets/logo_bovconfort_512.png'),
                     ),
                     
                     const Text(
