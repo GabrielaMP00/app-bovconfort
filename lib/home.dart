@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:appbovconfort/sobre.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:sizer/sizer.dart';
+import 'package:appbovconfort/faixa1.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

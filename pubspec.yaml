@@ -70,6 +70,10 @@ flutter:
     - assets/click.png
     - assets/book.png
     - assets/table.png
+    - assets/vaca_feliz.png
+    - assets/cuidado.png
+    - assets/vaca_triste.png
+    - assets/vaca_feliz2.png
 
   fonts:
     - family: OpenSans
