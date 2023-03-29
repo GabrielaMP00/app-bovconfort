@@ -6,6 +6,7 @@ import 'package:appbovconfort/faixa4.dart';
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/resultado_leite.dart';
+import 'package:appbovconfort/perda_de_leite.dart';
 
 class Faixa5 extends StatefulWidget {
   const Faixa5({super.key});
@@ -139,7 +140,7 @@ class _HomeState extends State<Faixa5> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Resultado_leite()));
+                            builder: (context) => const Perda_de_leite()));
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

@@ -9,6 +9,8 @@ import 'package:appbovconfort/faixa3.dart';
 import 'package:appbovconfort/faixa4.dart';
 import 'package:appbovconfort/faixa5.dart';
 import 'package:appbovconfort/leituras_comp.dart';
+import 'package:appbovconfort/perda_vaca.dart';
+import 'package:appbovconfort/perda_rebanho.dart';
 
 class Resultado_leite extends StatefulWidget {
   const Resultado_leite({super.key});

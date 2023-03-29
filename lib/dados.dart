@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:appbovconfort/browse.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/resultado_leite.dart';
+import 'package:appbovconfort/efeito_stress.dart';
 
 class Dados extends StatefulWidget {
   const Dados({super.key});
@@ -66,7 +67,10 @@ class _HomeState extends State<Dados> {
                         Column(children: [
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Efeito_Stress()));
+                              },
                               child: Image(
                                 image: AssetImage("assets/termometro.png"),
                                 height: size.height * .1,
