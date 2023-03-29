@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:appbovconfort/dados.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/itu_rs.dart';
+import 'package:appbovconfort/localizacao.dart';
 
 class Browse extends StatefulWidget {
   const Browse({super.key});
@@ -15,7 +16,7 @@ class _HomeState extends State<Browse> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
-      backgroundColor: Color.fromRGBO(57, 130, 111,1),
+      backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       title: Image.asset("assets/appbar_logo.png"),
       centerTitle: true,
     );
@@ -46,7 +47,8 @@ class _HomeState extends State<Browse> {
                     height: screenHeight * .12,
                     margin: EdgeInsets.only(bottom: screenHeight * .03),
                     child: Text("O que você deseja fazer?",
-                        style: TextStyle(fontSize: 20.sp, fontFamily: "OpenSans")),
+                        style:
+                            TextStyle(fontSize: 20.sp, fontFamily: "OpenSans")),
                   ),
                   Container(
                       width: size.width * .7,
@@ -60,7 +62,10 @@ class _HomeState extends State<Browse> {
                               MaterialPageRoute(
                                   builder: (context) => const Dados()));
                         },
-                        icon: Icon(Icons.search, size: 50,),
+                        icon: Icon(
+                          Icons.search,
+                          size: 50,
+                        ),
                         label: Text('Entender sobre Conforto Térmico Bovino',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -75,17 +80,19 @@ class _HomeState extends State<Browse> {
                       child: ElevatedButton.icon(
                         style: raisedButtonStyle,
                         onPressed: () {
-                           Navigator.push(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ITU_RS()));
+                                  builder: (context) => const Localizacao()));
                         },
-                        icon: Icon(Icons.calculate, size: 50,),
+                        icon: Icon(
+                          Icons.calculate,
+                          size: 50,
+                        ),
                         label: Text('Calcular o ITU',
                             style: TextStyle(
                                 fontSize: 18.sp, fontWeight: FontWeight.w800)),
                       )),
-                  
                   Container(
                     width: size.width * .8,
                     height: screenHeight * .05,

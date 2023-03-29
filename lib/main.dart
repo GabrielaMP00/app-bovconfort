@@ -1,3 +1,8 @@
+import 'package:appbovconfort/efeito_stress.dart';
+import 'package:appbovconfort/localizacao.dart';
+import 'package:appbovconfort/perda_de_leite.dart';
+import 'package:appbovconfort/perda_rebanho.dart';
+import 'package:appbovconfort/perda_vaca.dart';
 import 'package:flutter/material.dart';
 import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/browse.dart';
@@ -48,7 +53,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Widget> _telas = [const Home(), const Browse(), const Sobre()];
+  final List<Widget> _telas = [
+    Efeito_Stress(),
+    Home(),
+    const Browse(),
+    const Sobre()
+  ];
 
   int _paginaAtual = 0;
   void _aoMudardeAba(int indice) {
