@@ -33,14 +33,14 @@ class _HomeState extends State<Home> {
                     SizedBox(
                       width: 80,
                       height: 80,
-                      child: Image.asset('assets/logo_bovconfort_512.png'),
+                      child: Image.asset('assets/Group 7.png'),
                     ),
                     
                     const Text(
                       'BOVCONFORT',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          color: Colors.black,
+                          color: Color.fromRGBO(57, 130, 111, 1),
                           fontSize: 40,
                           fontWeight: FontWeight.w900),
                     ),

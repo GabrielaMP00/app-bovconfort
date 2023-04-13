@@ -20,7 +20,7 @@ class _HomeState extends State<Faixa5> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: const Color.fromRGBO(57, 130, 111, 1),
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;

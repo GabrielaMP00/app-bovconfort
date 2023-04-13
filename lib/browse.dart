@@ -18,7 +18,8 @@ class _HomeState extends State<Browse> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
+      
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;

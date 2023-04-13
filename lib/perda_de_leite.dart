@@ -6,7 +6,7 @@ import 'package:appbovconfort/faixa4.dart';
 import 'package:appbovconfort/faixa5.dart';
 import 'package:appbovconfort/perda_vaca.dart';
 import 'package:appbovconfort/perda_rebanho.dart';
-
+import 'package:sizer/sizer.dart';
 
 class Perda_de_leite extends StatefulWidget {
   const Perda_de_leite({super.key});
@@ -22,7 +22,7 @@ class _HomeState extends State<Perda_de_leite> {
 
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       leading: BackButton(
         color: Colors.teal[50],
       ),

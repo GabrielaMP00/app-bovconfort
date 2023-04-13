@@ -18,7 +18,7 @@ class _HomeState extends State<Dados> {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       leading: BackButton(
         color: Colors.teal[50],
       ),
