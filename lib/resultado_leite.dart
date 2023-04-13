@@ -85,7 +85,7 @@ class _HomeState extends State<Resultado_leite> {
                             fontWeight: FontWeight.w400)),
                   )),
                   SizedBox(height: size.height*.02),
-              Container(child: Center(child: Text("Litros/Dia", style: TextStyle(fontSize: 12.sp)))),
+              Container(child: Center(child: Text("Quilos/Dia", style: TextStyle(fontSize: 12.sp)))),
               SizedBox(height: size.height*.08),
               Container(
                   width: size.width * .6,

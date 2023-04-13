@@ -101,7 +101,7 @@ class _HomeState extends State<Faixa1> {
               Container(
                   height: screenHeight * .06,
                   child: Center(
-                    child: Text("ITU1 <= 70", textAlign: TextAlign.center,
+                    child: Text("ITU1 <= 71", textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontFamily: "OpenSans",
