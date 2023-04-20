@@ -71,6 +71,7 @@ flutter:
     - assets/book.png
     - assets/table.png
     - assets/estresse_termico-removebg-preview.png
+    - assets/Tabela.png
 
   fonts:
     - family: OpenSans

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Efeito_Stress extends StatefulWidget {
-  const Efeito_Stress({Key? key}) : super(key: key);
+class Tabela extends StatefulWidget {
+  const Tabela({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Efeito_Stress> {
+class _HomeState extends State<Tabela> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -28,9 +28,9 @@ class _HomeState extends State<Efeito_Stress> {
           clipBehavior: Clip.none,
           boundaryMargin: EdgeInsets.zero,
           minScale: 0.1,
-          maxScale: 2.0,
+          maxScale: 4.0,
           child: Image.asset(
-            'assets/estresse_termico-removebg-preview.png',
+            'assets/Tabela.png',
           ),
         ),
       ),

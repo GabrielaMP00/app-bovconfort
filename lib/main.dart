@@ -1,3 +1,5 @@
+import 'package:appbovconfort/Sobre_Nos.dart';
+import 'package:appbovconfort/Tabela.dart';
 import 'package:appbovconfort/efeito_stress.dart';
 import 'package:appbovconfort/localizacao.dart';
 import 'package:appbovconfort/perda_de_leite.dart';
@@ -53,12 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Widget> _telas = [
-    Efeito_Stress(),
-    Home(),
-    const Browse(),
-    const Sobre()
-  ];
+  final List<Widget> _telas = [Tabela(), Home(), const Browse(), const Sobre()];
 
   int _paginaAtual = 0;
   void _aoMudardeAba(int indice) {
