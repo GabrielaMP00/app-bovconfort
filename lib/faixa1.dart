@@ -16,14 +16,6 @@ class Faixa1 extends StatefulWidget {
 }
 
 class _HomeState extends State<Faixa1> {
-  final List<Widget> _telas = [const Home(), const Browse(), const Sobre()];
-
-  int _paginaAtual = 0;
-  void _aoMudardeAba(int indice) {
-    setState(() {
-      _paginaAtual = indice;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -80,44 +80,47 @@ class _HomeState extends State<Resultado_leite> {
                     child: Text(
                         " 0.00",
                         style: TextStyle(
-                            fontSize: 15.sp,
+                            fontSize: 20.sp,
                             fontFamily: "OpenSans",
                             fontWeight: FontWeight.w400)),
                   )),
                   SizedBox(height: size.height*.02),
               Container(child: Center(child: Text("Quilos/Dia", style: TextStyle(fontSize: 12.sp)))),
-              SizedBox(height: size.height*.08),
               Container(
-                  width: size.width * .6,
-                  height: screenHeight * .1,
-                  child: ElevatedButton(
-                    style: botaoCalcular,
-                    onPressed: () {
-                      Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Dados()));
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text('Como Atenuar o\nEstresse Térmico',
+                  width: size.width * .35,
+                  height: screenHeight * .2,
+                  child: new Image.asset('assets/perdaleite.png')),
+                SizedBox(height: size.height*.05),
+              Container(
+              width: size.width * .5,
+              height: screenHeight * .1,
+              child: ElevatedButton(
+                style: botaoCalcular,
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                     Icon(
+                      // <-- Icon
+                      Icons.arrow_back,
+                      size: 24.0,
+                    ),
+                    Text('Voltar ao início',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w600,
                         )), // <-- Text
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Icon(
-                          // <-- Icon
-                          Icons.question_mark_outlined,
-                          size: 30.0,
-                        ),
-                      ],
+                    SizedBox(
+                      width: 5,
                     ),
-                  ),),
+                   
+                  ],
+                ),
+              ),
+            ),
               SizedBox(height: screenHeight * .01),
             ])));
   }

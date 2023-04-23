@@ -78,6 +78,7 @@ flutter:
     - assets/novologo.png
     - assets/Group 7.png
     - assets/pagina.png
+    - assets/perdaleite.png
 
   fonts:
     - family: OpenSans

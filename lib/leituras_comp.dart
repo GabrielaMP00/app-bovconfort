@@ -35,12 +35,13 @@ class _HomeState extends State<Leituras_comp> {
         appBar: appBar,
         body: SafeArea(
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
                 //color: Colors.blue,
                 height: screenHeight * .2,
+                alignment: Alignment.topCenter,
                 child: Center(
                   child: Text("LEITURAS\nCOMPLEMENTARES",
                     style: TextStyle(
@@ -60,8 +61,37 @@ class _HomeState extends State<Leituras_comp> {
                         fontFamily: "OpenSans",
                         fontWeight: FontWeight.w600), textAlign: TextAlign.justify),
               )),
-              
-              SizedBox(height: size.height * .1),
+          
+              Container(
+              width: size.width * .5,
+              height: screenHeight * .1,
+              child: ElevatedButton(
+                style: botaoCalcular,
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                     Icon(
+                      // <-- Icon
+                      Icons.arrow_back,
+                      size: 24.0,
+                    ),
+                    Text('Voltar ao início',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                        )), // <-- Text
+                    SizedBox(
+                      width: 5,
+                    ),
+                   
+                  ],
+                ),
+              ),
+            ),
               
             ])));
   }
