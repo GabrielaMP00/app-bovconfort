@@ -3,6 +3,7 @@ import 'package:appbovconfort/browse.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/itu_br.dart';
+import 'package:appbovconfort/passos_br.dart';
 
 class Localizacao extends StatefulWidget {
   const Localizacao({super.key});
@@ -86,7 +87,7 @@ class _HomeState extends State<Localizacao> {
                           ))),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ITU_BR()));
+                    MaterialPageRoute(builder: (context) => const Passos_BR()));
               },
               child: const Text("Não"))
         ],

@@ -4,6 +4,9 @@ import 'package:appbovconfort/browse.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/resultado_leite.dart';
 import 'package:appbovconfort/efeito_stress.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://www.agricultura.rs.gov.br/simagro-rs');
 
 class Dados extends StatefulWidget {
   const Dados({super.key});
@@ -87,34 +90,53 @@ class _HomeState extends State<Dados> {
                         ])
                       ]),
                   SizedBox(height: size.height * .08),
-                  Container(
-                      width: size.width * .7,
-                      height: screenHeight * .3,
-                      // margin: EdgeInsets.only(bottom: screenHeight * .12),
-                      child: Column(
-                        children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(children: [
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: () {
-                                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Leituras_comp()));
-                              },
+                              onPressed: () {Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Leituras_comp()));},
                               child: Image(
-                                  image: AssetImage("assets/book.png"),
-                                  height: size.height * .1)),
+                                image: AssetImage("assets/book.png"),
+                                height: size.height * .1,
+                              )),
                           SizedBox(height: screenHeight * .02),
                           Text(
-                            "Leituras \n Complementares",
+                            'Leitura \nComplementar',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 15,
                                 color: Colors.black),
                           )
-                        ],
-                      )),
+                        ]),
+                        Column(children: [
+                          FloatingActionButton.large(
+                              backgroundColor: Color.fromRGBO(136, 221, 198, 1),
+                              onPressed: _launchUrl,
+                              child: Image(
+                                image: AssetImage("assets/pagina.png"),
+                                height: size.height * .1,
+                              )),
+                          SizedBox(height: screenHeight * .02),
+                          Text(
+                            'Conforto \nTérmico Bovino',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                                color: Colors.black),
+                          )
+                        ])
+                      ]),
+                  
                 ])));
   }
+
+  void _launchUrl() async {
+    if (!await launchUrl(_url)) throw 'Could not Open $_url';
+  }
 }
+

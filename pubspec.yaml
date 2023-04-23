@@ -31,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  url_launcher: ^6.0.10
   auto_size_text: ^3.0.0
   sizer: ^2.0.15
 
@@ -77,6 +77,7 @@ flutter:
     - assets/estresse_termico-removebg-preview.png
     - assets/novologo.png
     - assets/Group 7.png
+    - assets/pagina.png
 
   fonts:
     - family: OpenSans
