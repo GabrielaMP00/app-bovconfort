@@ -29,8 +29,6 @@ class _HomeState extends State<Localizacao> {
 
     return MaterialApp(
         home: Scaffold(
-<<<<<<< HEAD
-=======
       backgroundColor: Colors.teal[50],
       appBar: appBar,
       body: Column(
@@ -44,7 +42,6 @@ class _HomeState extends State<Localizacao> {
                   fontSize: 25,
                   color: Colors.black),
             )),
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
           ),
           const SizedBox(height: 50),
           ElevatedButton(
