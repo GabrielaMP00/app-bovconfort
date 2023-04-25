@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:appbovconfort/perda_de_leite.dart';
+import 'package:appbovconfort/resultado_leite.dart';
+import 'package:sizer/sizer.dart';
 
 class PerdaVaca extends StatefulWidget {
   const PerdaVaca({super.key});
@@ -14,7 +17,7 @@ class _HomeState extends State<PerdaVaca> {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       leading: BackButton(
         color: Colors.teal[50],
       ),
@@ -23,6 +26,7 @@ class _HomeState extends State<PerdaVaca> {
     var screenHeight = (size.height - appBar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
     return Scaffold(
+        backgroundColor: Colors.teal[50],
         appBar: appBar,
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,12 +37,11 @@ class _HomeState extends State<PerdaVaca> {
               Container(
                 alignment: Alignment.topCenter,
                 child: const Text(
-                  "Calcular Perda Estimada de Leite",
+                  "CALCULAR PERDA \nESTIMADA DE LEITE",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: "OpenSans-Regular",
                     fontSize: 25,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -48,12 +51,11 @@ class _HomeState extends State<PerdaVaca> {
               Container(
                 alignment: Alignment.topCenter,
                 child: Text(
-                  "Coloque o valor médio de produção da Vaca em litros:",
+                  "Coloque o valor médio de \nprodução da Vaca em litros:",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: "OpenSans-Regularr",
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
@@ -88,7 +90,12 @@ class _HomeState extends State<PerdaVaca> {
                   width: 150.0,
                   height: 70.0,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Resultado_leite()));
+                    },
                     child: Text(
                       "Calcular",
                       textAlign: TextAlign.center,

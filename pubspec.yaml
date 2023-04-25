@@ -72,6 +72,13 @@ flutter:
     - assets/table.png
     - assets/estresse_termico-removebg-preview.png
     - assets/Tabela.png
+    - assets/vaca_feliz.png
+    - assets/cuidado.png
+    - assets/vaca_triste.png
+    - assets/vaca_feliz2.png
+    - assets/estresse_termico-removebg-preview.png
+    - assets/novologo.png
+    - assets/Group 7.png
 
   fonts:
     - family: OpenSans

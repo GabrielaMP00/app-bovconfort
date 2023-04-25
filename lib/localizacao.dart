@@ -16,7 +16,7 @@ class _HomeState extends State<Localizacao> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: const Color.fromRGBO(57, 130, 111, 1),
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
       leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -29,19 +29,22 @@ class _HomeState extends State<Localizacao> {
 
     return MaterialApp(
         home: Scaffold(
+<<<<<<< HEAD
+=======
+      backgroundColor: Colors.teal[50],
       appBar: appBar,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: const Text(
-              "Você esta localizado(a) no Rio Grande do Sul?",
+            child: Center (child: const Text(
+              "Você está localizado(a) no \nRio Grande do Sul?",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: "OpenSans-Regular",
                   fontSize: 25,
                   color: Colors.black),
-            ),
+            )),
+>>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
           ),
           const SizedBox(height: 50),
           ElevatedButton(

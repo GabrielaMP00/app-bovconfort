@@ -1,6 +1,5 @@
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:appbovconfort/dados.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/itu_rs.dart';
@@ -18,12 +17,7 @@ class _HomeState extends State<Browse> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
-<<<<<<< HEAD
       title: Image.asset("assets/appbar_logo.png"),
-=======
-      title: Image.asset("assets/novologo.png", height: 30.sp),
-      
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;

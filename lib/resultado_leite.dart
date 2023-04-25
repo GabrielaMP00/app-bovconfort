@@ -1,23 +1,30 @@
+
+import 'package:appbovconfort/dados.dart';
+import 'package:appbovconfort/faixa2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
-import 'package:appbovconfort/browse.dart';
-import 'package:appbovconfort/itu_rs.dart';
-import 'package:appbovconfort/itu_br.dart';
+import 'package:appbovconfort/passos_br.dart';
+import 'package:appbovconfort/faixa3.dart';
+import 'package:appbovconfort/faixa4.dart';
+import 'package:appbovconfort/faixa5.dart';
+import 'package:appbovconfort/leituras_comp.dart';
+import 'package:appbovconfort/perda_vaca.dart';
+import 'package:appbovconfort/perda_rebanho.dart';
 
-class Passos_BR extends StatefulWidget {
-  const Passos_BR({super.key});
+class Resultado_leite extends StatefulWidget {
+  const Resultado_leite({super.key});
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Passos_BR> {
+class _HomeState extends State<Resultado_leite> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: const Color.fromRGBO(57, 130, 111, 1),
-      title: Image.asset("assets/novologo.png", height: 30.sp),
+     title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;
@@ -43,7 +50,7 @@ class _HomeState extends State<Passos_BR> {
                   //color: Colors.blue,
                   height: screenHeight * .1,
                   //margin: EdgeInsets.only(bottom: screenHeight * .03),
-                    child: Text("CALCULE O ITU",
+                    child: Text("RESULTADO",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontFamily: "OpenSans",
@@ -53,52 +60,33 @@ class _HomeState extends State<Passos_BR> {
                   //color: Colors.green,
                   height: screenHeight * .1,
                   margin: EdgeInsets.only(bottom: screenHeight * .01),
-                    child: Text("Siga os passos abaixo:",
+                  child: Center(
+                    child: Text("O valor estimado \nde perda de leite é:",
                         style: TextStyle(
                         fontSize: 16.sp,
                         fontFamily: "OpenSans",
                         fontWeight: FontWeight.w600)),
+                        )
               ),
+              SizedBox(height: size.height*.07),
               Container(
-                  height: screenHeight * .35,
-                  width: size.width * .9,
+                  height: screenHeight * .1,
+                  width: size.width * .5,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: Color.fromARGB(255, 168, 229, 213),),
                   //margin: EdgeInsets.only(bottom: screenHeight * .03),
                   child: Center(
                     child: Text(
-                        " 1. Acesse o Site do INMET/SISDAGRO \n 2. Selecione sua localidade \n 3. Escolha de um a cinco dias para calcular \n 4. Digite os valores de Temperatura Máxima e Temperatura Mínima\n 5. Digite os valores Umidade Relativa Máxima e Umidade Relativa Mínima",
+                        " 0.00",
                         style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 15.sp,
                             fontFamily: "OpenSans",
                             fontWeight: FontWeight.w400)),
                   )),
                   SizedBox(height: size.height*.02),
-              Container(
-                  //color: Colors.white,
-                  height: screenHeight * .12,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .01),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
-                      TextButton(
-                        onPressed: () {
-                          
-                        },
-                        child: Text(
-                          "Site do INMET",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontSize: 14.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black),
-                        )),
-                        Image(image: AssetImage("assets/click.png"), height: size.height*.05)
-                ])),
-              SizedBox(height: size.height*.04),
+              Container(child: Center(child: Text("Quilos/Dia", style: TextStyle(fontSize: 12.sp)))),
+              SizedBox(height: size.height*.08),
               Container(
                   width: size.width * .6,
                   height: screenHeight * .1,
@@ -108,12 +96,12 @@ class _HomeState extends State<Passos_BR> {
                       Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ITU_BR()));
+                                  builder: (context) => const Dados()));
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text('Inserir Valores',
+                        Text('Como Atenuar o\nEstresse Térmico',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12.sp,
@@ -124,8 +112,8 @@ class _HomeState extends State<Passos_BR> {
                         ),
                         Icon(
                           // <-- Icon
-                          Icons.arrow_forward,
-                          size: 24.0,
+                          Icons.question_mark_outlined,
+                          size: 30.0,
                         ),
                       ],
                     ),

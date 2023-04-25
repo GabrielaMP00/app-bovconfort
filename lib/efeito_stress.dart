@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class Efeito_Stress extends StatefulWidget {
   const Efeito_Stress({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _HomeState extends State<Efeito_Stress> {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       leading: BackButton(
         color: Colors.teal[50],
       ),
@@ -25,10 +26,9 @@ class _HomeState extends State<Efeito_Stress> {
       appBar: appBar,
       body: Center(
         child: InteractiveViewer(
-          clipBehavior: Clip.none,
-          boundaryMargin: EdgeInsets.zero,
+          boundaryMargin: EdgeInsets.all(20.0),
           minScale: 0.1,
-          maxScale: 2.0,
+          maxScale: 4.0,
           child: Image.asset(
             'assets/estresse_termico-removebg-preview.png',
           ),

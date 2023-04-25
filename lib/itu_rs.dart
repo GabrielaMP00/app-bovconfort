@@ -4,6 +4,7 @@ import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/browse.dart';
 import 'package:appbovconfort/itu_br.dart';
 import 'package:appbovconfort/passos_br.dart';
+import 'package:appbovconfort/faixa1.dart';
 
 class ITU_RS extends StatefulWidget {
   const ITU_RS({super.key});
@@ -17,7 +18,7 @@ class _HomeState extends State<ITU_RS> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: const Color.fromRGBO(57, 130, 111, 1),
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;
@@ -90,24 +91,24 @@ class _HomeState extends State<ITU_RS> {
                   height: screenHeight * .12,
                   margin: EdgeInsets.only(bottom: screenHeight * .03),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
-                      TextButton(
-                        onPressed: () {
-                          
-                        },
-                        child: Text(
-                          "Site do SIMAGRO",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontSize: 14.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black),
-                        )),
-                        Image(image: AssetImage("assets/click.png"), height: size.height*.05)
-                ])),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Site do SIMAGRO",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 14.sp,
+                                  fontFamily: "OpenSans",
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black),
+                            )),
+                        Image(
+                            image: AssetImage("assets/click.png"),
+                            height: size.height * .05)
+                      ])),
               Row(
                 children: <Widget>[
                   Container(
@@ -174,7 +175,12 @@ class _HomeState extends State<ITU_RS> {
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
-                        onPressed: () => {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Faixa1()));
+                        },
                         icon: Icon(
                           Icons.check,
                           size: 20,
