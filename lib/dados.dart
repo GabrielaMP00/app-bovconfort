@@ -5,8 +5,10 @@ import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/resultado_leite.dart';
 import 'package:appbovconfort/efeito_stress.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:appbovconfort/mitigar_efeitos.dart';
 
-final Uri _url = Uri.parse('https://www.agricultura.rs.gov.br/simagro-rs');
+final Uri _url =
+    Uri.parse('https://www.agricultura.rs.gov.br/agrometeorologia');
 
 class Dados extends StatefulWidget {
   const Dados({super.key});
@@ -39,13 +41,6 @@ class _HomeState extends State<Dados> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                    height: screenHeight * .15,
-                    margin: EdgeInsets.only(bottom: screenHeight * .03),
-                    child: Text("ACESSE OS CONTEÚDOS:",
-                        style: TextStyle(
-                            fontSize: 20.sp, fontWeight: FontWeight.w800)),
-                  ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -59,7 +54,7 @@ class _HomeState extends State<Dados> {
                               )),
                           SizedBox(height: screenHeight * .02),
                           Text(
-                            'Tabela de \n Valores e Faixas',
+                            'Tabela de \n Valores e Faixas\ndo ITU',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
@@ -71,8 +66,11 @@ class _HomeState extends State<Dados> {
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
                               onPressed: () {
-                                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Efeito_Stress()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Efeito_Stress()));
                               },
                               child: Image(
                                 image: AssetImage("assets/termometro.png"),
@@ -80,7 +78,7 @@ class _HomeState extends State<Dados> {
                               )),
                           SizedBox(height: screenHeight * .02),
                           Text(
-                            'Efeitos do \nEstresse Térmico',
+                            'Efeitos do \nEstresse\nTérmico',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
@@ -96,8 +94,31 @@ class _HomeState extends State<Dados> {
                         Column(children: [
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: () {Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Leituras_comp()));},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Mitigar_Efeitos()));
+                              },
+                              child: Image(
+                                image: AssetImage("assets/pagina.png"),
+                                height: size.height * .1,
+                              )),
+                          SizedBox(height: screenHeight * .02),
+                          Text(
+                            'Estratégias para evitar\nEstresse Térmico',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                                color: Colors.black),
+                          )
+                        ]),
+                        Column(children: [
+                          FloatingActionButton.large(
+                              backgroundColor: Color.fromRGBO(136, 221, 198, 1),
+                              onPressed: _launchUrl,
                               child: Image(
                                 image: AssetImage("assets/book.png"),
                                 height: size.height * .1,
@@ -111,27 +132,8 @@ class _HomeState extends State<Dados> {
                                 fontSize: 15,
                                 color: Colors.black),
                           )
-                        ]),
-                        Column(children: [
-                          FloatingActionButton.large(
-                              backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: _launchUrl,
-                              child: Image(
-                                image: AssetImage("assets/pagina.png"),
-                                height: size.height * .1,
-                              )),
-                          SizedBox(height: screenHeight * .02),
-                          Text(
-                            'Conforto \nTérmico Bovino',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15,
-                                color: Colors.black),
-                          )
                         ])
                       ]),
-                  
                 ])));
   }
 
@@ -139,4 +141,3 @@ class _HomeState extends State<Dados> {
     if (!await launchUrl(_url)) throw 'Could not Open $_url';
   }
 }
-

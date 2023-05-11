@@ -1,3 +1,4 @@
+import 'package:appbovconfort/faixa3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -14,6 +15,30 @@ class ITU_RS extends StatefulWidget {
 }
 
 class _HomeState extends State<ITU_RS> {
+  List<double> values = [];
+  final TextEditingController controller = TextEditingController();
+
+  void _addValue() {
+    if (values.length >= 5) {
+      return;
+    }
+    if (double.tryParse(controller.text) != null) {
+      setState(() {
+        values.add(double.parse(controller.text));
+        controller.clear();
+      });
+    }
+  }
+
+  void _calculateSum() {
+    double sum = values.fold(0, (prev, element) => prev + element);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Faixa1(sum: sum),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -41,6 +66,7 @@ class _HomeState extends State<ITU_RS> {
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     );
+    
     return Scaffold(
         backgroundColor: Colors.teal[50],
         appBar: appBar,
@@ -109,39 +135,10 @@ class _HomeState extends State<ITU_RS> {
                             image: AssetImage("assets/click.png"),
                             height: size.height * .05)
                       ])),
-              Row(
-                children: <Widget>[
-                  Container(
-                      //color: Colors.orange,
-                      height: screenHeight * .1,
-                      width: size.width * .5,
-                      alignment: Alignment.topRight,
-                      //margin: EdgeInsets.only(bottom: screenHeight * .03),
-                      child: Center(
-                        child: Text("ITU   = ",
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                                fontSize: 25.sp,
-                                fontFamily: "OpenSans",
-                                fontWeight: FontWeight.w700)),
-                      )),
-                  SizedBox(
-                    width: 160,
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(4),
-                      ],
-                      decoration: const InputDecoration(
-                          hintText: "0.00",
-                          border: OutlineInputBorder(),
-                          fillColor: Colors.white),
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ],
-              ),
+              TextField(
+              controller: controller,
+              keyboardType: TextInputType.number,
+            ),
               SizedBox(height: screenHeight * .07),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -152,12 +149,7 @@ class _HomeState extends State<ITU_RS> {
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
                         style: botaoAdicionar,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Passos_BR()));
-                        },
+                        onPressed: _addValue,
                         icon: Icon(
                           Icons.plus_one,
                           size: 20,
@@ -175,12 +167,9 @@ class _HomeState extends State<ITU_RS> {
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Faixa1()));
-                        },
+                        onPressed: (values.length >= 2 && values.length <= 5)
+                  ? _calculateSum
+                  : null,
                         icon: Icon(
                           Icons.check,
                           size: 20,

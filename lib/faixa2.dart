@@ -7,14 +7,11 @@ import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/faixa3.dart';
 
-class Faixa2 extends StatefulWidget {
-  const Faixa2({super.key});
+class Faixa2 extends StatelessWidget {
+   final double result;
 
-  @override
-  _HomeState createState() => _HomeState();
-}
+  Faixa2({required this.result});
 
-class _HomeState extends State<Faixa2> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -75,7 +72,7 @@ class _HomeState extends State<Faixa2> {
                       alignment: Alignment.topRight,
                       //margin: EdgeInsets.only(bottom: screenHeight * .03),
                       child: Center(
-                        child: Text("RESULTADO = ",
+                        child: Text("RESULTADO = $result",
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 fontSize: 19.sp,

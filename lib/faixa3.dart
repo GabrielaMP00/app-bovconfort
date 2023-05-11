@@ -42,6 +42,10 @@ class _HomeState extends State<Faixa3> {
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     );
+     List<double> values = [];
+      String currentValue = '';
+
+    final TextEditingController _controller = TextEditingController();
     return Scaffold(
         backgroundColor: Colors.teal[50],
         appBar: appBar,
@@ -93,6 +97,7 @@ class _HomeState extends State<Faixa3> {
                   SizedBox(
                     width: 120,
                     child: TextField(
+                      controller: _controller,
                       keyboardType: TextInputType.number,
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
