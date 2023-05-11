@@ -26,11 +26,12 @@ class _HomeState extends State<Efeito_Stress> {
       appBar: appBar,
       body: Center(
         child: InteractiveViewer(
-          boundaryMargin: EdgeInsets.all(20.0),
+          clipBehavior: Clip.none,
+          boundaryMargin: EdgeInsets.zero,
           minScale: 0.1,
           maxScale: 4.0,
           child: Image.asset(
-            'assets/estresse_termico-removebg-preview.png',
+            'assets/Estresse_Térmico.png',
           ),
         ),
       ),

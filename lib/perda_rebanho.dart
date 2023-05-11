@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-<<<<<<< HEAD
-=======
 import 'package:appbovconfort/perda_de_leite.dart';
 import 'package:appbovconfort/resultado_leite.dart';
 import 'package:sizer/sizer.dart';
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
 
 class PerdaRebanho extends StatefulWidget {
   const PerdaRebanho({super.key});
@@ -20,11 +17,7 @@ class _HomeState extends State<PerdaRebanho> {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-<<<<<<< HEAD
-      title: Image.asset("assets/appbar_logo.png"),
-=======
       title: Image.asset("assets/novologo.png", height: 30.sp),
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
       leading: BackButton(
         color: Colors.teal[50],
       ),
@@ -33,10 +26,7 @@ class _HomeState extends State<PerdaRebanho> {
     var screenHeight = (size.height - appBar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
     return Scaffold(
-<<<<<<< HEAD
-=======
-      backgroundColor: Colors.teal[50],
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
+        backgroundColor: Colors.teal[50],
         appBar: appBar,
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,21 +37,11 @@ class _HomeState extends State<PerdaRebanho> {
               Container(
                 alignment: Alignment.topCenter,
                 child: const Text(
-<<<<<<< HEAD
-                  "Calcular Perda Estimada de Leite",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: "OpenSans-Regular",
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-=======
                   "CALCULAR PERDA \nESTIMADA DE LEITE",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-  
                     fontSize: 25,
                     fontWeight: FontWeight.w800,
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
                   ),
                 ),
               ),
@@ -71,18 +51,10 @@ class _HomeState extends State<PerdaRebanho> {
               Container(
                 alignment: Alignment.topCenter,
                 child: Text(
-<<<<<<< HEAD
-                  "Coloque o valor médio de produção do Rebanho em litros:",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: "OpenSans-Regularr",
-                    fontSize: 25,
-=======
                   "Coloque o valor médio de \nprodução do Rebanho em litros:",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 22,
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -118,22 +90,16 @@ class _HomeState extends State<PerdaRebanho> {
                   width: 150.0,
                   height: 70.0,
                   child: ElevatedButton(
-<<<<<<< HEAD
-                    onPressed: () {},
-=======
                     onPressed: () {
-                      Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Resultado_leite()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Resultado_leite()));
                     },
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
                     child: Text(
                       "Calcular",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-<<<<<<< HEAD
-                        fontFamily: "OpenSans-Regular",
-=======
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc
                         fontSize: 25,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
@@ -148,8 +114,4 @@ class _HomeState extends State<PerdaRebanho> {
               ),
             ]));
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3f3c561ad3b6106b0ceb48f6ea5ab9def1a7babc

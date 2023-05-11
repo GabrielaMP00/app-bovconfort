@@ -70,16 +70,18 @@ flutter:
     - assets/click.png
     - assets/book.png
     - assets/table.png
-    - assets/estresse_termico-removebg-preview.png
+    - assets/Estresse_Térmico.png
     - assets/Tabela.png
     - assets/vaca_feliz.png
     - assets/cuidado.png
     - assets/vaca_triste.png
     - assets/vaca_feliz2.png
-    - assets/estresse_termico-removebg-preview.png
     - assets/novologo.png
+    - assets/GovernoRS_logo-removebg-preview.png
+    - assets/DDPA_logo-removebg-preview.png
+    - assets/CNPq_logo-removebg-preview.png
+    - assets/Fapergs_logo.png
     - assets/Group 7.png
-
   fonts:
     - family: OpenSans
       fonts:

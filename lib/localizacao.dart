@@ -35,12 +35,11 @@ class _HomeState extends State<Localizacao> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Center (child: const Text(
+            child: Center(
+                child: const Text(
               "Você está localizado(a) no \nRio Grande do Sul?",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black),
+              style: TextStyle(fontSize: 25, color: Colors.black),
             )),
           ),
           const SizedBox(height: 50),

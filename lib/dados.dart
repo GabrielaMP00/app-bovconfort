@@ -1,3 +1,4 @@
+import 'package:appbovconfort/Tabela.dart';
 import 'package:appbovconfort/leituras_comp.dart';
 import 'package:flutter/material.dart';
 import 'package:appbovconfort/browse.dart';
@@ -49,7 +50,12 @@ class _HomeState extends State<Dados> {
                         Column(children: [
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Tabela()));
+                              },
                               child: Image(
                                 image: AssetImage("assets/table.png"),
                                 height: size.height * .1,
@@ -68,8 +74,11 @@ class _HomeState extends State<Dados> {
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
                               onPressed: () {
-                                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Efeito_Stress()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Efeito_Stress()));
                               },
                               child: Image(
                                 image: AssetImage("assets/termometro.png"),
@@ -97,9 +106,10 @@ class _HomeState extends State<Dados> {
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
                               onPressed: () {
                                 Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Leituras_comp()));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Leituras_comp()));
                               },
                               child: Image(
                                   image: AssetImage("assets/book.png"),

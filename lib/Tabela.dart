@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class Tabela extends StatefulWidget {
   const Tabela({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _HomeState extends State<Tabela> {
     var appBar = AppBar(
       backgroundColor: Color.fromRGBO(57, 130, 111, 1),
       centerTitle: true,
-      title: Image.asset("assets/appbar_logo.png"),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       leading: BackButton(
         color: Colors.teal[50],
       ),

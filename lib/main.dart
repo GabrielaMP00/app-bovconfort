@@ -55,7 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Widget> _telas = [Tabela(), Home(), const Browse(), const Sobre()];
+  final List<Widget> _telas = [Home(), const Browse(), const Sobre_nos()];
 
   int _paginaAtual = 0;
   void _aoMudardeAba(int indice) {
