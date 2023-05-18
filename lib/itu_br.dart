@@ -1,4 +1,5 @@
 
+import 'package:appbovconfort/faixa1.dart';
 import 'package:appbovconfort/faixa2.dart';
 import 'package:appbovconfort/faixa3.dart';
 import 'package:flutter/material.dart';
@@ -197,10 +198,7 @@ class _HomeState extends State<ITU_BR> {
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Faixa3()));
+                          
                         },
                         icon: Icon(
                           Icons.check,

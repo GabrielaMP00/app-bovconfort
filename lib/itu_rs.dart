@@ -1,4 +1,7 @@
+import 'package:appbovconfort/faixa2.dart';
 import 'package:appbovconfort/faixa3.dart';
+import 'package:appbovconfort/faixa4.dart';
+import 'package:appbovconfort/faixa5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -30,14 +33,38 @@ class _HomeState extends State<ITU_RS> {
     }
   }
 
-  void _calculateSum() {
-    double sum = values.fold(0, (prev, element) => prev + element);
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Faixa1(sum: sum),
-      ),
-    );
+  void _calculateAverage() {
+    if (values.isNotEmpty) {
+      double sum = values.reduce((value, element) => value + element);
+      double average = sum / values.length;
+      
+      if (average <= 71) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa1(average: average)),
+        );
+      } else if (average > 71 && average <= 75) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa2(average: average)),
+        );
+      } else if (average > 75 && average <= 79) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa3(average: average)),
+        );
+      } else if (average > 79 && average <= 84) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa4(average: average)),
+        );
+      } else if (average > 84) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa5(average: average)),
+        );
+      }
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -115,7 +142,7 @@ class _HomeState extends State<ITU_RS> {
               Container(
                   //color: Colors.white,
                   height: screenHeight * .12,
-                  margin: EdgeInsets.only(bottom: screenHeight * .03),
+                  margin: EdgeInsets.only(bottom: screenHeight * .01),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -129,17 +156,35 @@ class _HomeState extends State<ITU_RS> {
                                   fontSize: 14.sp,
                                   fontFamily: "OpenSans",
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.black),
+                                  color: Colors.indigo),
                             )),
                         Image(
                             image: AssetImage("assets/click.png"),
                             height: size.height * .05)
                       ])),
-              TextField(
-              controller: controller,
-              keyboardType: TextInputType.number,
-            ),
-              SizedBox(height: screenHeight * .07),
+              Container(
+                margin: EdgeInsets.only(bottom: screenHeight * .03),
+                child: Center(
+                  child: Text("INSIRA O(S) VALOR(ES) DO ITU:",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w800)),
+                ),
+              ),
+              SizedBox(
+                width: size.width * 0.4,
+                height: size.height * 0.1,
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                      hintText: "0.00",
+                      border: OutlineInputBorder(),
+                      fillColor: Colors.white),
+                ),
+              ),
+              SizedBox(height: screenHeight * .05),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -167,8 +212,8 @@ class _HomeState extends State<ITU_RS> {
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
-                        onPressed: (values.length >= 2 && values.length <= 5)
-                  ? _calculateSum
+                        onPressed: (values.length >= 1 && values.length <= 5)
+                  ? _calculateAverage
                   : null,
                         icon: Icon(
                           Icons.check,
