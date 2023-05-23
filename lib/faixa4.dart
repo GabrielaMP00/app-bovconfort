@@ -25,7 +25,15 @@ class _HomeState extends State<Faixa4> {
     var size = MediaQuery.of(context).size;
     var screenHeight = (size.height - appBar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
-    final ButtonStyle botaoLeite = ElevatedButton.styleFrom(
+   final ButtonStyle botaoCalcular = ElevatedButton.styleFrom(
+        foregroundColor: Colors.black,
+        backgroundColor: const Color.fromRGBO(136, 221, 198, 1),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ));
+    final ButtonStyle botaoAdicionar = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey,
       minimumSize: const Size(88, 36),
@@ -130,37 +138,62 @@ class _HomeState extends State<Faixa4> {
                             fontWeight: FontWeight.w800,
                             fontStyle: FontStyle.italic)),
                   )),
-              Container(
-                width: size.width * .6,
-                height: screenHeight * .1,
-                child: ElevatedButton(
-                  style: botaoLeite,
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Faixa5()));
-                  },
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('Calcular Perda \n Estimada de Leite',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w600,
-                          )), // <-- Text
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Icon(
-                        // <-- Icon
-                        Icons.arrow_forward,
-                        size: 24.0,
-                      ),
-                    ],
-                  ),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      width: size.width * .45,
+                      height: screenHeight * .1,
+                      //margin: EdgeInsets.only(bottom: screenHeight*.12),
+                      child: ElevatedButton.icon(
+                        style: botaoAdicionar,
+                        onPressed: () {
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          size: 20,
+                        ),
+                        label: Text('Voltar\nao Início',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11.sp,
+                              fontWeight: FontWeight.w800,
+                            )),
+                      )),
+                  SizedBox(width: size.width * .05),
+                  Container(
+                      width: size.width * .45,
+                      height: screenHeight * .1,
+                      child: ElevatedButton(
+                        style: botaoCalcular,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Faixa5()));
+                        },
+                         child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('Calcular\nPerda de Leite',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w800,
+                        )), // <-- Text
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          // <-- Icon
+                          Icons.arrow_forward,
+                          size: 20.0,
+                        ),
+                      ],
+                    ),
+                      )),
+                ],
               ),
             ])));
   }

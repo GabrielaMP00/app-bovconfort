@@ -1,3 +1,4 @@
+import 'package:appbovconfort/site_Simagro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -5,6 +6,7 @@ import 'package:appbovconfort/browse.dart';
 import 'package:appbovconfort/itu_br.dart';
 import 'package:appbovconfort/passos_br.dart';
 import 'package:appbovconfort/faixa1.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ITU_RS extends StatefulWidget {
   const ITU_RS({super.key});
@@ -94,7 +96,10 @@ class _HomeState extends State<ITU_RS> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              launchUrl(Uri.parse(
+                                  'http://www.simagro.rs.gov.br/agrometeograma-wrf.html'));
+                            },
                             child: Text(
                               "Site do SIMAGRO",
                               textAlign: TextAlign.center,

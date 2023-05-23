@@ -31,9 +31,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  url_launcher: ^6.0.10
   auto_size_text: ^3.0.0
   sizer: ^2.0.15
+  webview_flutter: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -82,6 +83,9 @@ flutter:
     - assets/CNPq_logo-removebg-preview.png
     - assets/Fapergs_logo.png
     - assets/Group 7.png
+    - assets/pagina.png
+    - assets/perdaleite.png
+
   fonts:
     - family: OpenSans
       fonts:

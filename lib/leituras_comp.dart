@@ -35,12 +35,13 @@ class _HomeState extends State<Leituras_comp> {
         appBar: appBar,
         body: SafeArea(
             child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
                 //color: Colors.blue,
                 height: screenHeight * .2,
+                alignment: Alignment.topCenter,
                 child: Center(
                   child: Text("LEITURAS\nCOMPLEMENTARES",
                     style: TextStyle(
@@ -50,89 +51,47 @@ class _HomeState extends State<Leituras_comp> {
               ),
               Container(
                 //color: Colors.green,
-                height: screenHeight * .1,
+                height: screenHeight * .6,
+                width: size.width * .9,
                 margin: EdgeInsets.only(bottom: screenHeight * .01),
-                child: Text("Acesse os links abaixo:",
+                
+                child: Center(child:Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat eros ac urna vehicula, vitae pulvinar dolor lacinia. Quisque at mollis odio. Sed sit amet leo enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In tincidunt blandit lacus sed molestie. Donec eget maximus erat, in interdum ex. Donec vel enim a nunc bibendum egestas quis vel velit. ",
                     style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 15.sp,
                         fontFamily: "OpenSans",
-                        fontWeight: FontWeight.w600)),
-              ),
-              SizedBox(height: size.height * .06),
+                        fontWeight: FontWeight.w600), textAlign: TextAlign.justify),
+              )),
+          
               Container(
-                  //color: Colors.white,
-                  height: screenHeight * .12,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .01),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Título do Artigo 1",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 14.sp,
-                                  fontFamily: "OpenSans",
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blue[900],
-                                  decoration: TextDecoration.underline),
-                            )),
-                        Image(
-                            image: AssetImage("assets/click.png"),
-                            height: size.height * .05)
-                      ])),
-                      Container(
-                  //color: Colors.white,
-                  height: screenHeight * .12,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .01),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Título do Artigo 2",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 14.sp,
-                                  fontFamily: "OpenSans",
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blue[900],
-                                  decoration: TextDecoration.underline),
-                            )),
-                        Image(
-                            image: AssetImage("assets/click.png"),
-                            height: size.height * .05)
-                      ])),
-                      Container(
-                  //color: Colors.white,
-                  height: screenHeight * .12,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .01),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Título do Artigo 3",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 14.sp,
-                                  fontFamily: "OpenSans",
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.blue[900],
-                                  decoration: TextDecoration.underline),
-                                  
-                            )),
-                        Image(
-                            image: AssetImage("assets/click.png"),
-                            height: size.height * .05)
-                      ])),
-              SizedBox(height: size.height * .1),
+              width: size.width * .5,
+              height: screenHeight * .1,
+              child: ElevatedButton(
+                style: botaoCalcular,
+                onPressed: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                     Icon(
+                      // <-- Icon
+                      Icons.arrow_back,
+                      size: 24.0,
+                    ),
+                    Text('Voltar ao início',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w600,
+                        )), // <-- Text
+                    SizedBox(
+                      width: 5,
+                    ),
+                   
+                  ],
+                ),
+              ),
+            ),
               
             ])));
   }

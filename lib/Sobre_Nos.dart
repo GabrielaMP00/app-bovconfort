@@ -75,8 +75,12 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 icon: Icon(
                   Icons.people,
                   size: 40,
+                  color: Colors.black,
                 ),
-                label: const Text("Equipe")),
+                label: const Text(
+                  "Equipe",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           SizedBox(
             height: 20.0,
@@ -111,8 +115,12 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 icon: Icon(
                   Icons.notes,
                   size: 40,
+                  color: Colors.black,
                 ),
-                label: const Text("Bibliografia")),
+                label: const Text(
+                  "Bibliografia",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           SizedBox(
             height: 20.0,
@@ -140,8 +148,12 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 icon: Icon(
                   Icons.star,
                   size: 40,
+                  color: Colors.black,
                 ),
-                label: const Text("Fale Conosco")),
+                label: const Text(
+                  "Fale Conosco",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           SizedBox(
             height: 20.0,
@@ -169,8 +181,12 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 icon: Icon(
                   Icons.send,
                   size: 25,
+                  color: Colors.black,
                 ),
-                label: const Text("Compartilhar App")),
+                label: const Text(
+                  "Compartilhar App",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           SizedBox(
             height: 20.0,
@@ -199,8 +215,12 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 icon: Icon(
                   Icons.star,
                   size: 40,
+                  color: Colors.black,
                 ),
-                label: const Text("Avalie-nos")),
+                label: const Text(
+                  "Avalie-nos",
+                  style: TextStyle(color: Colors.black),
+                )),
           ),
           Row(children: [
             Image.asset(
