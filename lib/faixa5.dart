@@ -9,9 +9,9 @@ import 'package:appbovconfort/resultado_leite.dart';
 import 'package:appbovconfort/perda_de_leite.dart';
 
 class Faixa5 extends StatelessWidget {
- final double average;
+ final double itu;
 
-  const Faixa5({Key? key, required this.average}) : super(key: key);
+  const Faixa5({Key? key, required this.itu}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class Faixa5 extends StatelessWidget {
                       alignment: Alignment.topRight,
                       //margin: EdgeInsets.only(bottom: screenHeight * .03),
                       child: Center(
-                        child: Text("RESULTADO = ${average.toStringAsFixed(1)}",
+                        child: Text("RESULTADO = ${itu.toStringAsFixed(1)}",
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 fontSize: 19.sp,

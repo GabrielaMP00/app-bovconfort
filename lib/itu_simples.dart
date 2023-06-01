@@ -1,8 +1,8 @@
-import 'package:appbovconfort/faixa1_simples.dart';
-import 'package:appbovconfort/faixa2_simples.dart';
-import 'package:appbovconfort/faixa3_simples.dart';
-import 'package:appbovconfort/faixa4_simples.dart';
-import 'package:appbovconfort/faixa5_simples.dart';
+import 'package:appbovconfort/faixa1.dart';
+import 'package:appbovconfort/faixa2.dart';
+import 'package:appbovconfort/faixa3.dart';
+import 'package:appbovconfort/faixa4.dart';
+import 'package:appbovconfort/faixa5.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -32,27 +32,27 @@ class _HomeState extends State<ITU_Simples> {
       if (itu <= 71) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa1Simples(itu: itu)),
+          MaterialPageRoute(builder: (context) => Faixa1(itu: itu)),
         );
       } else if (itu > 71 && itu <= 75) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa2Simples(itu: itu)),
+          MaterialPageRoute(builder: (context) => Faixa2(itu: itu)),
         );
       } else if (itu > 75 && itu <= 79) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa3Simples(itu: itu)),
+          MaterialPageRoute(builder: (context) => Faixa3(itu: itu)),
         );
       } else if (itu > 79 && itu <= 84) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa4Simples(itu: itu)),
+          MaterialPageRoute(builder: (context) => Faixa4(itu: itu)),
         );
       } else if (itu > 84) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa5Simples(itu: itu)),
+          MaterialPageRoute(builder: (context) => Faixa5(itu: itu)),
         );
       } else {
       showDialog(
