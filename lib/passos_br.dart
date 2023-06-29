@@ -4,6 +4,9 @@ import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/browse.dart';
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/itu_br.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://portal.inmet.gov.br/');
 
 class Passos_BR extends StatefulWidget {
   const Passos_BR({super.key});
@@ -83,9 +86,7 @@ class _HomeState extends State<Passos_BR> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:  [
                       TextButton(
-                        onPressed: () {
-                          
-                        },
+                        onPressed: _launchUrl,
                         child: Text(
                           "Site do INMET",
                           textAlign: TextAlign.center,
@@ -132,5 +133,8 @@ class _HomeState extends State<Passos_BR> {
                   ),),
               SizedBox(height: screenHeight * .01),
             ])));
+  }
+      void _launchUrl() async {
+    if (!await launchUrl(_url)) throw 'Could not Open $_url';
   }
 }

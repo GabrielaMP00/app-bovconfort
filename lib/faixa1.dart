@@ -8,14 +8,10 @@ import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/sobre.dart';
 
-class Faixa1 extends StatefulWidget {
-  const Faixa1({super.key});
+class Faixa1 extends StatelessWidget {
+  final double average;
 
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Faixa1> {
+  const Faixa1({Key? key, required this.average}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,32 +63,17 @@ class _HomeState extends State<Faixa1> {
                 Container(
                     //color: Colors.orange,
                     height: screenHeight * .1,
-                    width: size.width * .5,
+                    width: size.width * .8,
                     alignment: Alignment.topRight,
                     margin: EdgeInsets.only(bottom: screenHeight * .03),
                     child: Center(
-                      child: Text("RESULTADO = ",
+                      child: Text("RESULTADO = ${average.toStringAsFixed(1)}",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 19.sp,
                               fontFamily: "OpenSans",
                               fontWeight: FontWeight.w800)),
                     )),
-                SizedBox(
-                  width: 120,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                      LengthLimitingTextInputFormatter(4),
-                    ],
-                    decoration: const InputDecoration(
-                        hintText: "0.00",
-                        border: OutlineInputBorder(),
-                        fillColor: Colors.white),
-                    style: TextStyle(fontSize: 17),
-                  ),
-                ),
               ],
             ),
             SizedBox(height: screenHeight * .07),

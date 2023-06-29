@@ -3,15 +3,38 @@ import 'package:flutter/services.dart';
 import 'package:appbovconfort/perda_de_leite.dart';
 import 'package:appbovconfort/resultado_leite.dart';
 import 'package:sizer/sizer.dart';
+import 'dart:math';
+import 'dataHolder.dart';
+import 'itu_rs.dart';
 
 class PerdaRebanho extends StatefulWidget {
-  const PerdaRebanho({super.key});
+  const PerdaRebanho({
+    super.key,
+  });
 
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<PerdaRebanho> {
+  var mediaProducao = TextEditingController();
+  double Dpl = 0.0;
+  double itu = DataHolder().average;
+
+  void calculoPerdaLeite() {
+    var mediaProducaokg = double.parse(mediaProducao.text) * 1.03;
+
+    Dpl =
+        -(1.075 - 1.736 * mediaProducaokg + 0.02474 * mediaProducaokg * (itu));
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    mediaProducao.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -66,6 +89,7 @@ class _HomeState extends State<PerdaRebanho> {
                 width: 300.0,
                 alignment: Alignment.bottomCenter,
                 child: TextField(
+                  controller: mediaProducao,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -91,10 +115,13 @@ class _HomeState extends State<PerdaRebanho> {
                   height: 70.0,
                   child: ElevatedButton(
                     onPressed: () {
+                      calculoPerdaLeite();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Resultado_leite()));
+                              builder: (context) => Resultado_leite(
+                                    dpl: Dpl,
+                                  )));
                     },
                     child: Text(
                       "Calcular",

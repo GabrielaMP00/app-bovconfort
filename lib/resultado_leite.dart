@@ -1,4 +1,3 @@
-
 import 'package:appbovconfort/dados.dart';
 import 'package:appbovconfort/faixa2.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,9 @@ import 'package:appbovconfort/perda_vaca.dart';
 import 'package:appbovconfort/perda_rebanho.dart';
 
 class Resultado_leite extends StatefulWidget {
-  const Resultado_leite({super.key});
+  final double dpl;
+
+  const Resultado_leite({Key? key, required this.dpl}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -24,7 +25,7 @@ class _HomeState extends State<Resultado_leite> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       backgroundColor: const Color.fromRGBO(57, 130, 111, 1),
-     title: Image.asset("assets/novologo.png", height: 30.sp),
+      title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
     );
     var size = MediaQuery.of(context).size;
@@ -47,15 +48,15 @@ class _HomeState extends State<Resultado_leite> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
-                  //color: Colors.blue,
-                  height: screenHeight * .1,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .03),
-                    child: Text("RESULTADO",
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontFamily: "OpenSans",
-                            fontWeight: FontWeight.w800)),
-                  ),
+                //color: Colors.blue,
+                height: screenHeight * .1,
+                //margin: EdgeInsets.only(bottom: screenHeight * .03),
+                child: Text("RESULTADO",
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        fontFamily: "OpenSans",
+                        fontWeight: FontWeight.w800)),
+              ),
               Container(
                   //color: Colors.green,
                   height: screenHeight * .1,
@@ -63,64 +64,65 @@ class _HomeState extends State<Resultado_leite> {
                   child: Center(
                     child: Text("O valor estimado \nde perda de leite é:",
                         style: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: "OpenSans",
-                        fontWeight: FontWeight.w600)),
-                        )
-              ),
-              SizedBox(height: size.height*.07),
+                            fontSize: 16.sp,
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.w600)),
+                  )),
+              SizedBox(height: size.height * .07),
               Container(
                   height: screenHeight * .1,
                   width: size.width * .5,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Color.fromARGB(255, 168, 229, 213),),
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Color.fromARGB(255, 168, 229, 213),
+                  ),
                   //margin: EdgeInsets.only(bottom: screenHeight * .03),
                   child: Center(
-                    child: Text(
-                        " 0.00",
+                    child: Text("${widget.dpl.toStringAsFixed(2)}",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontFamily: "OpenSans",
                             fontWeight: FontWeight.w400)),
                   )),
-                  SizedBox(height: size.height*.02),
-              Container(child: Center(child: Text("Quilos/Dia", style: TextStyle(fontSize: 12.sp)))),
+              SizedBox(height: size.height * .02),
+              Container(
+                  child: Center(
+                      child: Text("Quilos/Dia",
+                          style: TextStyle(fontSize: 12.sp)))),
               Container(
                   width: size.width * .35,
                   height: screenHeight * .2,
                   child: new Image.asset('assets/perdaleite.png')),
-                SizedBox(height: size.height*.05),
+              SizedBox(height: size.height * .05),
               Container(
-              width: size.width * .5,
-              height: screenHeight * .1,
-              child: ElevatedButton(
-                style: botaoCalcular,
-                onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                     Icon(
-                      // <-- Icon
-                      Icons.arrow_back,
-                      size: 24.0,
-                    ),
-                    Text('Voltar ao início',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w600,
-                        )), // <-- Text
-                    SizedBox(
-                      width: 5,
-                    ),
-                   
-                  ],
+                width: size.width * .5,
+                height: screenHeight * .1,
+                child: ElevatedButton(
+                  style: botaoCalcular,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        // <-- Icon
+                        Icons.arrow_back,
+                        size: 24.0,
+                      ),
+                      Text('Voltar ao início',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w600,
+                          )), // <-- Text
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
               SizedBox(height: screenHeight * .01),
             ])));
   }

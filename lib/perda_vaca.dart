@@ -4,6 +4,8 @@ import 'package:appbovconfort/perda_de_leite.dart';
 import 'package:appbovconfort/resultado_leite.dart';
 import 'package:sizer/sizer.dart';
 
+import 'dataHolder.dart';
+
 class PerdaVaca extends StatefulWidget {
   const PerdaVaca({super.key});
 
@@ -12,6 +14,17 @@ class PerdaVaca extends StatefulWidget {
 }
 
 class _HomeState extends State<PerdaVaca> {
+  var mediaProducao = TextEditingController();
+  double Dpl = 0.0;
+  double itu = DataHolder().average;
+
+  void calculoPerdaLeite() {
+    var mediaProducaokg = double.parse(mediaProducao.text) * 1.03;
+
+    Dpl =
+        -(1.075 - 1.736 * mediaProducaokg + 0.02474 * mediaProducaokg * (itu));
+  }
+
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -66,6 +79,7 @@ class _HomeState extends State<PerdaVaca> {
                 width: 300.0,
                 alignment: Alignment.bottomCenter,
                 child: TextField(
+                  controller: mediaProducao,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -91,10 +105,13 @@ class _HomeState extends State<PerdaVaca> {
                   height: 70.0,
                   child: ElevatedButton(
                     onPressed: () {
+                      calculoPerdaLeite();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Resultado_leite()));
+                              builder: (context) => Resultado_leite(
+                                    dpl: Dpl,
+                                  )));
                     },
                     child: Text(
                       "Calcular",

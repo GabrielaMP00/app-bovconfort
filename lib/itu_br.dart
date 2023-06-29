@@ -1,5 +1,7 @@
 
+import 'package:appbovconfort/faixa1.dart';
 import 'package:appbovconfort/faixa2.dart';
+import 'package:appbovconfort/faixa3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +9,7 @@ import 'package:appbovconfort/browse.dart';
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/passos_br.dart';
 import 'package:appbovconfort/faixa2.dart';
+
 
 class ITU_BR extends StatefulWidget {
   const ITU_BR({super.key});
@@ -195,10 +198,7 @@ class _HomeState extends State<ITU_BR> {
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Faixa2()));
+                          
                         },
                         icon: Icon(
                           Icons.check,
@@ -216,5 +216,6 @@ class _HomeState extends State<ITU_BR> {
               SizedBox(height: screenHeight * .01),
             ])));
   }
+
 }
 

@@ -1,3 +1,4 @@
+import 'package:appbovconfort/perda_de_leite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -7,14 +8,11 @@ import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/faixa3.dart';
 
-class Faixa2 extends StatefulWidget {
-  const Faixa2({super.key});
+class Faixa2 extends StatelessWidget {
+   final double average;
 
-  @override
-  _HomeState createState() => _HomeState();
-}
+  const Faixa2({Key? key, required this.average}) : super(key: key);
 
-class _HomeState extends State<Faixa2> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -71,32 +69,17 @@ class _HomeState extends State<Faixa2> {
                   Container(
                       //color: Colors.orange,
                       height: screenHeight * .1,
-                      width: size.width * .5,
+                      width: size.width * .8,
                       alignment: Alignment.topRight,
                       //margin: EdgeInsets.only(bottom: screenHeight * .03),
                       child: Center(
-                        child: Text("RESULTADO = ",
+                        child: Text("RESULTADO = ${average.toStringAsFixed(1)}",
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 fontSize: 19.sp,
                                 fontFamily: "OpenSans",
                                 fontWeight: FontWeight.w800)),
                       )),
-                  SizedBox(
-                    width: 120,
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(4),
-                      ],
-                      decoration: const InputDecoration(
-                          hintText: "0.00",
-                          border: OutlineInputBorder(),
-                          fillColor: Colors.white),
-                      style: TextStyle(fontSize: 17),
-                    ),
-                  ),
                 ],
               ),
               SizedBox(height: screenHeight * .05),
@@ -163,7 +146,7 @@ class _HomeState extends State<Faixa2> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Faixa3()));
+                                  builder: (context) => const Perda_de_leite()));
                         },
                          child: Row(
                       mainAxisSize: MainAxisSize.min,

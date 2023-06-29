@@ -222,22 +222,38 @@ class _Sobre_nosState extends State<Sobre_nos> {
                   style: TextStyle(color: Colors.black),
                 )),
           ),
-          Row(children: [
-            Image.asset(
-              "assets/GovernoRS_logo-removebg-preview.png",
-              height: 50,
+          Container(
+            height: 60.0, // Defina a altura desejada
+            padding: EdgeInsets.symmetric(
+                horizontal: 16.0), // Espaçamento horizontal
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/GovernoRS_logo-removebg-preview.png",
+                  height: 89.5,
+                  width: 89.5,
+                ),
+                SizedBox(width: 8.0), // Espaçamento entre as imagens
+                Image.asset(
+                  "assets/DDPA_logo-removebg-preview.png",
+                  height: 89.5,
+                  width: 89.5,
+                ),
+                SizedBox(width: 8.0),
+                Image.asset(
+                  "assets/Fapergs_logo.png",
+                  height: 89.5,
+                  width: 89.5,
+                ),
+                SizedBox(width: 8.0),
+                Image.asset(
+                  "assets/Logo__Biometeoro.png",
+                  height: 89.5,
+                  width: 89.5,
+                ),
+              ],
             ),
-            Spacer(),
-            Image.asset(
-              "assets/DDPA_logo-removebg-preview.png",
-              height: 50,
-            ),
-            Spacer(),
-            Image.asset(
-              "assets/Fapergs_logo.png",
-              height: 40,
-            ),
-          ]),
+          ),
         ],
       ),
     );

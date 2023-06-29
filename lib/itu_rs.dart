@@ -7,6 +7,12 @@ import 'package:appbovconfort/itu_br.dart';
 import 'package:appbovconfort/passos_br.dart';
 import 'package:appbovconfort/faixa1.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dataHolder.dart';
+import 'faixa2.dart';
+import 'faixa3.dart';
+import 'faixa4.dart';
+import 'faixa5.dart';
+import 'perda_rebanho.dart';
 
 class ITU_RS extends StatefulWidget {
   const ITU_RS({super.key});
@@ -16,6 +22,57 @@ class ITU_RS extends StatefulWidget {
 }
 
 class _HomeState extends State<ITU_RS> {
+  List<double> values = [];
+  final TextEditingController controller = TextEditingController();
+
+  void _addValue() {
+    if (values.length >= 5) {
+      return;
+    }
+    if (double.tryParse(controller.text) != null) {
+      setState(() {
+        values.add(double.parse(controller.text));
+        controller.clear();
+      });
+    }
+  }
+
+  void _calculateAverage() {
+    if (values.isNotEmpty) {
+      double sum = values.reduce((value, element) => value + element);
+      double average = sum / values.length;
+
+      DataHolder().average = average;
+
+      if (average <= 71) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa1(average: average)),
+        );
+      } else if (average > 71 && average <= 75) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa2(average: average)),
+        );
+      } else if (average > 75 && average <= 79) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa3(average: average)),
+        );
+      } else if (average > 79 && average <= 84) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa4(average: average)),
+        );
+      } else if (average > 84) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Faixa5(average: average)),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -43,6 +100,7 @@ class _HomeState extends State<ITU_RS> {
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     );
+
     return Scaffold(
         backgroundColor: Colors.teal[50],
         appBar: appBar,
@@ -91,7 +149,7 @@ class _HomeState extends State<ITU_RS> {
               Container(
                   //color: Colors.white,
                   height: screenHeight * .12,
-                  margin: EdgeInsets.only(bottom: screenHeight * .03),
+                  margin: EdgeInsets.only(bottom: screenHeight * .01),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -108,46 +166,35 @@ class _HomeState extends State<ITU_RS> {
                                   fontSize: 14.sp,
                                   fontFamily: "OpenSans",
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.black),
+                                  color: Colors.indigo),
                             )),
                         Image(
                             image: AssetImage("assets/click.png"),
                             height: size.height * .05)
                       ])),
-              Row(
-                children: <Widget>[
-                  Container(
-                      //color: Colors.orange,
-                      height: screenHeight * .1,
-                      width: size.width * .5,
-                      alignment: Alignment.topRight,
-                      //margin: EdgeInsets.only(bottom: screenHeight * .03),
-                      child: Center(
-                        child: Text("ITU   = ",
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                                fontSize: 25.sp,
-                                fontFamily: "OpenSans",
-                                fontWeight: FontWeight.w700)),
-                      )),
-                  SizedBox(
-                    width: 160,
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(4),
-                      ],
-                      decoration: const InputDecoration(
-                          hintText: "0.00",
-                          border: OutlineInputBorder(),
-                          fillColor: Colors.white),
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ],
+              Container(
+                margin: EdgeInsets.only(bottom: screenHeight * .03),
+                child: Center(
+                  child: Text("INSIRA O(S) VALOR(ES) DO ITU:",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w800)),
+                ),
               ),
-              SizedBox(height: screenHeight * .07),
+              SizedBox(
+                width: size.width * 0.4,
+                height: size.height * 0.1,
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                      hintText: "0.00",
+                      border: OutlineInputBorder(),
+                      fillColor: Colors.white),
+                ),
+              ),
+              SizedBox(height: screenHeight * .05),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -157,12 +204,7 @@ class _HomeState extends State<ITU_RS> {
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
                         style: botaoAdicionar,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Passos_BR()));
-                        },
+                        onPressed: _addValue,
                         icon: Icon(
                           Icons.plus_one,
                           size: 20,
@@ -180,12 +222,9 @@ class _HomeState extends State<ITU_RS> {
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Faixa1()));
-                        },
+                        onPressed: (values.length >= 1 && values.length <= 5)
+                            ? _calculateAverage
+                            : null,
                         icon: Icon(
                           Icons.check,
                           size: 20,
