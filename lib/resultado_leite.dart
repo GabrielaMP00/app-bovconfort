@@ -1,5 +1,6 @@
 import 'package:appbovconfort/dados.dart';
 import 'package:appbovconfort/faixa2.dart';
+import 'package:appbovconfort/mitigar_efeitos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -33,12 +34,21 @@ class _HomeState extends State<Resultado_leite> {
         MediaQuery.of(context).padding.top;
     final ButtonStyle botaoCalcular = ElevatedButton.styleFrom(
         foregroundColor: Colors.black,
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromRGBO(136, 221, 198, 1),
         minimumSize: const Size(88, 36),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ));
+    final ButtonStyle botaoAdicionar = ElevatedButton.styleFrom(
+      foregroundColor: Colors.black,
+      backgroundColor: Colors.grey,
+      minimumSize: const Size(88, 36),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+    );
     return Scaffold(
         backgroundColor: Colors.teal[50],
         appBar: appBar,

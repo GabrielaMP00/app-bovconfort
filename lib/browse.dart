@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:appbovconfort/dados.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/itu_rs.dart';
-import 'package:appbovconfort/localizacao.dart';
+import 'package:appbovconfort/internet.dart';
 
 class Browse extends StatefulWidget {
   const Browse({super.key});
@@ -84,7 +84,7 @@ class _HomeState extends State<Browse> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Localizacao()));
+                                  builder: (context) => const Internet()));
                         },
                         icon: Icon(
                           Icons.calculate,

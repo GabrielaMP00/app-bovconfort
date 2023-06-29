@@ -9,9 +9,9 @@ import 'package:appbovconfort/home.dart';
 import 'package:appbovconfort/faixa3.dart';
 
 class Faixa2 extends StatelessWidget {
-   final double average;
+   final double itu;
 
-  const Faixa2({Key? key, required this.average}) : super(key: key);
+  const Faixa2({Key? key, required this.itu}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class Faixa2 extends StatelessWidget {
                       alignment: Alignment.topRight,
                       //margin: EdgeInsets.only(bottom: screenHeight * .03),
                       child: Center(
-                        child: Text("RESULTADO = ${average.toStringAsFixed(1)}",
+                        child: Text("RESULTADO = ${itu.toStringAsFixed(1)}",
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 fontSize: 19.sp,

@@ -25,6 +25,8 @@ class _HomeState extends State<ITU_RS> {
   List<double> values = [];
   final TextEditingController controller = TextEditingController();
 
+  int valueCount = 0; // Contador de inserção
+
   void _addValue() {
     if (values.length >= 5) {
       return;
@@ -33,6 +35,7 @@ class _HomeState extends State<ITU_RS> {
       setState(() {
         values.add(double.parse(controller.text));
         controller.clear();
+        valueCount++;
       });
     }
   }
@@ -40,34 +43,34 @@ class _HomeState extends State<ITU_RS> {
   void _calculateAverage() {
     if (values.isNotEmpty) {
       double sum = values.reduce((value, element) => value + element);
-      double average = sum / values.length;
+      double itu = sum / values.length;
 
-      DataHolder().average = average;
+      DataHolder().average = itu;
 
-      if (average <= 71) {
+      if (itu <= 71) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa1(average: average)),
+          MaterialPageRoute(builder: (context) => Faixa1(itu: itu)),
         );
-      } else if (average > 71 && average <= 75) {
+      } else if (itu > 71 && itu <= 75) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa2(average: average)),
+          MaterialPageRoute(builder: (context) => Faixa2(itu: itu)),
         );
-      } else if (average > 75 && average <= 79) {
+      } else if (itu > 75 && itu <= 79) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa3(average: average)),
+          MaterialPageRoute(builder: (context) => Faixa3(itu: itu)),
         );
-      } else if (average > 79 && average <= 84) {
+      } else if (itu > 79 && itu <= 84) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa4(average: average)),
+          MaterialPageRoute(builder: (context) => Faixa4(itu: itu)),
         );
-      } else if (average > 84) {
+      } else if (itu > 84) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Faixa5(average: average)),
+          MaterialPageRoute(builder: (context) => Faixa5(itu: itu)),
         );
       }
     }
@@ -111,7 +114,7 @@ class _HomeState extends State<ITU_RS> {
                 children: <Widget>[
               Container(
                   //color: Colors.blue,
-                  height: screenHeight * .12,
+                  height: screenHeight * .1,
                   //margin: EdgeInsets.only(bottom: screenHeight * .03),
                   child: Center(
                     child: Text("CALCULE O ITU",
@@ -148,7 +151,7 @@ class _HomeState extends State<ITU_RS> {
                   )),
               Container(
                   //color: Colors.white,
-                  height: screenHeight * .12,
+                  height: screenHeight * .1,
                   margin: EdgeInsets.only(bottom: screenHeight * .01),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -238,7 +241,18 @@ class _HomeState extends State<ITU_RS> {
                       )),
                 ],
               ),
-              SizedBox(height: screenHeight * .05),
+              SizedBox(height: screenHeight * .02),
+              Container(
+                margin: EdgeInsets.only(top: 8),
+                child: Text(
+                  'Você adicionou $valueCount valores',
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.red[900],
+                  ),
+                ),
+              ),
             ])));
   }
 }

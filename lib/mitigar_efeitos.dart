@@ -27,8 +27,19 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
       backgroundColor: Colors.teal[50],
       body: Center(
         child: ListView(children: [
-          SizedBox(height: size.height * .2),
-
+          SizedBox(height: size.height * .1),
+        Container(
+                  //color: Colors.blue,
+                  height: screenHeight * .1,
+                  //margin: EdgeInsets.only(bottom: screenHeight * .03),
+                    child: Text("DICAS DE MANEJO",
+                    textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.w800)),
+                  ),
+                  SizedBox(height: size.height * .05),
         Card(
           color:Color.fromRGBO(136, 221, 198, 1),
           margin: const EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
