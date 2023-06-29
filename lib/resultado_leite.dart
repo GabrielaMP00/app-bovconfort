@@ -1,6 +1,7 @@
 
 import 'package:appbovconfort/dados.dart';
 import 'package:appbovconfort/faixa2.dart';
+import 'package:appbovconfort/mitigar_efeitos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -32,12 +33,21 @@ class _HomeState extends State<Resultado_leite> {
         MediaQuery.of(context).padding.top;
     final ButtonStyle botaoCalcular = ElevatedButton.styleFrom(
         foregroundColor: Colors.black,
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromRGBO(136, 221, 198, 1),
         minimumSize: const Size(88, 36),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ));
+      final ButtonStyle botaoAdicionar = ElevatedButton.styleFrom(
+      foregroundColor: Colors.black,
+      backgroundColor: Colors.grey,
+      minimumSize: const Size(88, 36),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+    );
     return Scaffold(
         backgroundColor: Colors.teal[50],
         appBar: appBar,
@@ -91,36 +101,63 @@ class _HomeState extends State<Resultado_leite> {
                   height: screenHeight * .2,
                   child: new Image.asset('assets/perdaleite.png')),
                 SizedBox(height: size.height*.05),
-              Container(
-              width: size.width * .5,
-              height: screenHeight * .1,
-              child: ElevatedButton(
-                style: botaoCalcular,
-                onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                     Icon(
-                      // <-- Icon
-                      Icons.arrow_back,
-                      size: 24.0,
-                    ),
-                    Text('Voltar ao início',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      width: size.width * .45,
+                      height: screenHeight * .1,
+                      //margin: EdgeInsets.only(bottom: screenHeight*.12),
+                      child: ElevatedButton.icon(
+                        style: botaoAdicionar,
+                        onPressed: () {
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          size: 20,
+                        ),
+                        label: Text('Voltar\nao Início',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11.sp,
+                              fontWeight: FontWeight.w800,
+                            )),
+                      )),
+                  SizedBox(width: size.width * .05),
+                  Container(
+                      width: size.width * .45,
+                      height: screenHeight * .1,
+                      child: ElevatedButton(
+                        style: botaoCalcular,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Mitigar_Efeitos()));
+                        },
+                         child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('Dicas de\nManejo',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w800,
                         )), // <-- Text
-                    SizedBox(
-                      width: 5,
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Icon(
+                          // <-- Icon
+                          Icons.arrow_forward,
+                          size: 20.0,
+                        ),
+                      ],
                     ),
-                   
-                  ],
-                ),
+                      )),
+                ],
               ),
-            ),
               SizedBox(height: screenHeight * .01),
             ])));
   }
