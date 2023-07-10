@@ -230,26 +230,26 @@ class _Sobre_nosState extends State<Sobre_nos> {
               children: [
                 Image.asset(
                   "assets/GovernoRS_logo-removebg-preview.png",
-                  height: 89.5,
-                  width: 89.5,
+                  height: 88,
+                  width: 88,
                 ),
                 SizedBox(width: 8.0), // Espaçamento entre as imagens
                 Image.asset(
                   "assets/DDPA_logo-removebg-preview.png",
-                  height: 89.5,
-                  width: 89.5,
+                  height: 88,
+                  width: 88,
                 ),
                 SizedBox(width: 8.0),
                 Image.asset(
                   "assets/Fapergs_logo.png",
-                  height: 89.5,
-                  width: 89.5,
+                  height: 88,
+                  width: 88,
                 ),
                 SizedBox(width: 8.0),
                 Image.asset(
                   "assets/Logo__Biometeoro.png",
-                  height: 89.5,
-                  width: 89.5,
+                  height: 88,
+                  width: 88,
                 ),
               ],
             ),
