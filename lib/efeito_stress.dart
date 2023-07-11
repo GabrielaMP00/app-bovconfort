@@ -24,6 +24,7 @@ class _HomeState extends State<Efeito_Stress> {
         MediaQuery.of(context).padding.top;
     return Scaffold(
       appBar: appBar,
+      backgroundColor: Colors.teal[50],
       body: Center(
         child: InteractiveViewer(
           clipBehavior: Clip.none,

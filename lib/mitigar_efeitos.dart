@@ -22,6 +22,14 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
     var size = MediaQuery.of(context).size;
     var screenHeight = (size.height - appBar.preferredSize.height) -
         MediaQuery.of(context).padding.top;
+    final ButtonStyle botaoCalcular = ElevatedButton.styleFrom(
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.grey,
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ));
     return Scaffold(
       appBar: appBar,
       backgroundColor: Colors.teal[50],
@@ -39,7 +47,7 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
                   fontFamily: "OpenSans",
                   fontWeight: FontWeight.w800)),
         ),
-        SizedBox(height: size.height * .05),
+        SizedBox(height: size.height * .02),
         Card(
           color: Color.fromRGBO(136, 221, 198, 1),
           margin: const EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
@@ -167,7 +175,37 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
             ],
           ),
         ),
-        SizedBox(height: size.height * .2),
+        SizedBox(height: size.height * .05),
+        Container(
+                width: size.width * .5,
+                height: screenHeight * .1,
+                margin: const EdgeInsets.only(left: 70, right: 70, top: 5, bottom: 5),
+                child: ElevatedButton(
+                  style: botaoCalcular,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        // <-- Icon
+                        Icons.arrow_back,
+                        size: 24.0,
+                      ),
+                      Text('Voltar ao início',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w600,
+                          )), // <-- Text
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
       ])),
     );
   }
