@@ -18,14 +18,18 @@ class PerdaRebanho extends StatefulWidget {
 
 class _HomeState extends State<PerdaRebanho> {
   var mediaProducao = TextEditingController();
+  var numRebanho = TextEditingController();
   double Dpl = 0.0;
   double itu = DataHolder().average;
 
   void calculoPerdaLeite() {
     var mediaProducaokg = double.parse(mediaProducao.text) * 1.03;
+    var numRebanhoValue = double.parse(numRebanho.text);
 
-    Dpl =
-        -(1.075 - 1.736 * mediaProducaokg + 0.02474 * mediaProducaokg * (itu));
+    Dpl = (-(1.075 -
+            1.736 * mediaProducaokg +
+            0.02474 * mediaProducaokg * (itu)) *
+        numRebanhoValue);
   }
 
   @override
@@ -69,7 +73,45 @@ class _HomeState extends State<PerdaRebanho> {
                 ),
               ),
               SizedBox(
-                height: 75,
+                height: 50,
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                child: Text(
+                  "Coloque o número de vacas do rebanho:",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 25.0,
+              ),
+              Container(
+                width: 300.0,
+                alignment: Alignment.bottomCenter,
+                child: TextField(
+                  controller: numRebanho,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(4),
+                  ],
+                  decoration: InputDecoration(
+                      hintText: "0.00",
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      fillColor: Colors.white),
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ),
+              const SizedBox(
+                height: 25.0,
               ),
               Container(
                 alignment: Alignment.topCenter,
@@ -83,7 +125,7 @@ class _HomeState extends State<PerdaRebanho> {
                 ),
               ),
               const SizedBox(
-                height: 75.0,
+                height: 25.0,
               ),
               Container(
                 width: 300.0,
