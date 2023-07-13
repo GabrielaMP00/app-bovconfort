@@ -20,7 +20,7 @@
     </intent>
 </queries>
    <application
-        android:label="appbovconfort"
+        android:label="BovConfort"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
