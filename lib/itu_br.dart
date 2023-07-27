@@ -10,6 +10,7 @@ import 'package:appbovconfort/browse.dart';
 import 'package:appbovconfort/itu_rs.dart';
 import 'package:appbovconfort/passos_br.dart';
 import 'dart:math' as math;
+import 'dataHolder.dart';
 
 class ITU_BR extends StatefulWidget {
   const ITU_BR({super.key});
@@ -69,6 +70,9 @@ class _HomeState extends State<ITU_BR> {
           (0.1 * avgTemperature) -
           112;
       double itu = avgTemperature + (0.36 * tpo) + 41.5;
+
+      DataHolder().average = itu;
+
       if (itu <= 71) {
         Navigator.push(
           context,
@@ -353,16 +357,16 @@ class _HomeState extends State<ITU_BR> {
                 ],
               ),
               Padding(
-              padding: EdgeInsets.only(top: size.width * .02),
-              child: Text(
-                'Você adicionou $valueCount valor(es)',
-                style: TextStyle(
-                  fontSize: 10.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.red[900],
+                padding: EdgeInsets.only(top: size.width * .02),
+                child: Text(
+                  'Você adicionou $valueCount valor(es)',
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.red[900],
+                  ),
                 ),
               ),
-            ),
             ])));
   }
 }

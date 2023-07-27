@@ -19,13 +19,16 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
       backgroundColor: Colors.teal[50],
+  
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
+          
           children: <Widget>[
             Container(
               height: screenHeight * .22,
+              padding: const EdgeInsets.all(10),
               alignment: Alignment.bottomCenter,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -35,28 +38,26 @@ class _HomeState extends State<Home> {
                       height: 80,
                       child: Image.asset('assets/Group 7.png'),
                     ),
-                    
                     const Text(
                       'BOVCONFORT',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Color.fromRGBO(57, 130, 111, 1),
-                          fontSize: 40,
+                          fontSize: 37,
                           fontWeight: FontWeight.w900),
                     ),
                   ],
                 ),
-            
             ),
             Container(
               height: screenHeight * .1,
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: MediaQuery.of(context).size.width * 0.9,
               margin: EdgeInsets.only(top: screenHeight*.02),
               child: Center(child:Text(
                   'Descubra como evitar o desconforto térmico em vacas de leite.',
                   textAlign: TextAlign.center,
                   style:
-                      TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w800)),
+                      TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w800)),
             )),
             Container(
                 width: size.width * .9,
