@@ -60,7 +60,7 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
                   "Medidas para mitigar os\nefeitos do estresse térmico",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w800),
                 )
@@ -91,7 +91,7 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
                   "Sistemas de sombreamento e refrigeração",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w800),
                 )
@@ -122,7 +122,7 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
                   "Disponibilização de \nágua de qualidade",
                   textAlign: TextAlign.justify,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w800),
                 )
@@ -156,7 +156,7 @@ class _Mitigar_EfeitosState extends State<Mitigar_Efeitos> {
                   "Nutrição Adequeda",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 12.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w800),
                 )

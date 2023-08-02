@@ -117,7 +117,7 @@ class _HomeState extends State<Passos_BR> {
                         Text('Inserir Valores',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 10.sp,
                           fontWeight: FontWeight.w800,
                         )), // <-- Text
                         SizedBox(

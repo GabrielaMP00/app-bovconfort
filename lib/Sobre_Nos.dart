@@ -13,23 +13,28 @@ class Sobre_nos extends StatefulWidget {
 }
 
 void _sendEmail() async {
-  final String recipientEmail = "tecbovapp@gmail.com";
-  final String subject = "Duvidas BovConfort";
-  final String body = "Digite sua mensagem aqui.";
+  String email = 'tecbovapp@gmail.com';
+  String subject = 'BovConfort';
+  String body = '';
+
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
 
   final Uri emailUri = Uri(
     scheme: 'mailto',
-    path: recipientEmail,
-    queryParameters: {
-      'subject': subject,
-      'body': body,
-    },
+    path: email,
+    query: encodeQueryParameters(
+        <String, String>{'subject': subject, 'body': body}),
   );
 
-  if (await canLaunchUrl(emailUri.toString() as Uri)) {
-    await launchUrl(emailUri.toString() as Uri);
+  if (await canLaunchUrl(emailUri)) {
+    launchUrl(emailUri);
   } else {
-    throw 'Não foi possível abrir o cliente de e-mail.';
+    print("Não foi possível enviar e-mail.");
   }
 }
 
@@ -167,10 +172,10 @@ class _Sobre_nosState extends State<Sobre_nos> {
                               fontWeight: FontWeight.w700,
                             ))),
                 onPressed: () {
-                  _sendEmail;
+                  _sendEmail();
                 },
                 icon: Icon(
-                  Icons.star,
+                  Icons.mail_outline,
                   size: 40,
                   color: Colors.black,
                 ),
@@ -250,35 +255,40 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 )),
           ),
           Container(
-            height: 60.0, // Defina a altura desejada
-            padding: EdgeInsets.symmetric(
-                horizontal: 16.0), // Espaçamento horizontal
+            height: 60.0,
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  "assets/GovernoRS_logo-removebg-preview.png",
-                  height: 85,
-                  width: 85,
+                Flexible(
+                  child: Image.asset(
+                    "assets/GovernoRS_logo-removebg-preview.png",
+                    height: 89.5,
+                    width: 89.5,
+                  ),
                 ),
-                SizedBox(width: 8.0), // Espaçamento entre as imagens
-                Image.asset(
-                  "assets/DDPA_logo-removebg-preview.png",
-                  height: 85,
-                  width: 85,
+                SizedBox(width: 4.0),
+                Flexible(
+                  child: Image.asset(
+                    "assets/DDPA_logo-removebg-preview.png",
+                    height: 89.5,
+                    width: 89.5,
+                  ),
                 ),
-                SizedBox(width: 8.0),
-                Image.asset(
-                  "assets/Fapergs_logo.png",
-                  height: 85,
-                  width: 85,
+                SizedBox(width: 4.0),
+                Flexible(
+                  child: Image.asset(
+                    "assets/Fapergs_logo.png",
+                    height: 89.5,
+                    width: 89.5,
+                  ),
                 ),
-                SizedBox(width: 8.0),
-                Image.asset(
-                  "assets/Logo__Biometeoro.png",
-                  height: 85,
-                  width: 85,
+                SizedBox(width: 4.0),
+                Flexible(
+                  child: Image.asset(
+                    "assets/Logo__Biometeoro.png",
+                    height: 89.5,
+                    width: 89.5,
+                  ),
                 ),
               ],
             ),

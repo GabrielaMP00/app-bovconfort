@@ -319,7 +319,7 @@ class _HomeState extends State<ITU_BR> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      width: size.width * .35,
+                      width: size.width * .4,
                       height: screenHeight * .1,
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
@@ -332,13 +332,13 @@ class _HomeState extends State<ITU_BR> {
                         label: Text('Adicionar',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 12.sp,
+                              fontSize: 10.sp,
                               fontWeight: FontWeight.w800,
                             )),
                       )),
-                  SizedBox(width: size.width * .1),
+                  SizedBox(width: size.width * .05),
                   Container(
-                      width: size.width * .35,
+                      width: size.width * .4,
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
@@ -350,7 +350,7 @@ class _HomeState extends State<ITU_BR> {
                         label: Text('Calcular',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 12.sp,
+                              fontSize: 10.sp,
                               fontWeight: FontWeight.w800,
                             )),
                       )),

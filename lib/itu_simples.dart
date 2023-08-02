@@ -9,6 +9,8 @@ import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/browse.dart';
 import 'dart:math' as math;
 
+import 'dataHolder.dart';
+
 class ITU_Simples extends StatefulWidget {
   const ITU_Simples({super.key});
 
@@ -26,8 +28,11 @@ class _HomeState extends State<ITU_Simples> {
       double tm = double.parse(tmController.text);
       double ur = double.parse(urController.text);
 
-      double tpo = (math.pow(ur / 100, 1 / 8)) * (112 + (0.9 * tm)) + (0.1 * tm) - 112;
+      double tpo =
+          (math.pow(ur / 100, 1 / 8)) * (112 + (0.9 * tm)) + (0.1 * tm) - 112;
       double itu = tm + (0.36 * tpo) + 41.5;
+
+      DataHolder().average = itu;
 
       if (itu <= 71) {
         Navigator.push(
@@ -55,24 +60,24 @@ class _HomeState extends State<ITU_Simples> {
           MaterialPageRoute(builder: (context) => Faixa5(itu: itu)),
         );
       } else {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Error'),
-            content: Text('Please enter values in both fields.'),
-            actions: <Widget>[
-              TextButton(
-                child: Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('Please enter values in both fields.'),
+              actions: <Widget>[
+                TextButton(
+                  child: Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
     }
   }
 
@@ -158,7 +163,8 @@ class _HomeState extends State<ITU_Simples> {
                     decoration: const InputDecoration(
                         hintText: "0.00",
                         border: OutlineInputBorder(),
-                        fillColor: Colors.white), onChanged: (value) => checkInputFields()), 
+                        fillColor: Colors.white),
+                    onChanged: (value) => checkInputFields()),
               ),
               SizedBox(height: screenHeight * .05),
               Container(
@@ -175,13 +181,13 @@ class _HomeState extends State<ITU_Simples> {
                 width: size.width * 0.4,
                 height: size.height * 0.1,
                 child: TextField(
-                  controller: urController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      hintText: "0.00",
-                      border: OutlineInputBorder(),
-                      fillColor: Colors.white), onChanged: (value) => checkInputFields()
-                ),
+                    controller: urController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                        hintText: "0.00",
+                        border: OutlineInputBorder(),
+                        fillColor: Colors.white),
+                    onChanged: (value) => checkInputFields()),
               ),
               SizedBox(height: screenHeight * .1),
               Container(
@@ -197,7 +203,7 @@ class _HomeState extends State<ITU_Simples> {
                     label: Text('Calcular',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 10.sp,
                           fontWeight: FontWeight.w800,
                         )),
                   )),

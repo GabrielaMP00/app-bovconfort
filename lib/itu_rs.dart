@@ -202,7 +202,7 @@ class _HomeState extends State<ITU_RS> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      width: size.width * .35,
+                      width: size.width * .4,
                       height: screenHeight * .1,
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
@@ -219,9 +219,9 @@ class _HomeState extends State<ITU_RS> {
                               fontWeight: FontWeight.w800,
                             )),
                       )),
-                  SizedBox(width: size.width * .1),
+                  SizedBox(width: size.width * .05),
                   Container(
-                      width: size.width * .35,
+                      width: size.width * .4,
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
