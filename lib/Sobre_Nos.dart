@@ -1,4 +1,4 @@
-import 'package:appbovconfort/informa%C3%A7oes.dart';
+import 'package:appbovconfort/informaçoes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -15,7 +15,7 @@ class Sobre_nos extends StatefulWidget {
 void _sendEmail() async {
   String email = 'tecbovapp@gmail.com';
   String subject = 'BovConfort';
-  String body = '';
+  String body = 'Olá';
 
   String? encodeQueryParameters(Map<String, String> params) {
     return params.entries

@@ -53,11 +53,14 @@ class _HomeState extends State<Home> {
               height: screenHeight * .1,
               width: MediaQuery.of(context).size.width * 0.9,
               margin: EdgeInsets.only(top: screenHeight*.02),
-              child: Center(child:Text(
-                  'Descubra como evitar o desconforto térmico em vacas de leite.',
+              child: Center(child:AutoSizeText(
+                  'Descubra como evitar o desconforto\ntérmico em vacas de leite.',
                   textAlign: TextAlign.center,
+                  minFontSize: 18,
+                  maxFontSize: 20,
+                  overflow: TextOverflow.ellipsis,
                   style:
-                      TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w800)),
+                      TextStyle(fontWeight: FontWeight.w800)),
             )),
             Container(
                 width: size.width * .9,
@@ -66,13 +69,15 @@ class _HomeState extends State<Home> {
                 color: Color.fromRGBO(136, 221, 198, 1),
                 padding: EdgeInsets.all(20),
                 child: Center(
-                    child: Text(
-                  "O objetivo do BovConfort é fornecer ferramentas para que criadores e profissionais das Ciências Agrárias possam identificar situações de estresse térmico para os animais, estabelecer estratégias de manejo para minimizar seus efeitos e estimar as perdas na produção de leite de uma forma objetiva e ágil.",
-                  textAlign: TextAlign.justify,
-                  
-                  style:
-                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w400),
-                ))),
+                    child: LayoutBuilder(
+                      builder: (BuildContext context, BoxConstraints constraints) {
+                        return Text(
+                          'O objetivo do BovConfort é fornecer ferramentas para que criadores e profissionais das Ciências Agrárias possam identificar situações de estresse térmico para os animais, estabelecer estratégias de manejo para minimizar seus efeitos e estimar as perdas na produção de leite de uma forma objetiva e ágil.',
+                          style: TextStyle(fontSize: constraints.maxHeight / 15),
+                          textAlign: TextAlign.justify,
+                        );
+                      },
+                    ))),
           ]),
     );
   }
