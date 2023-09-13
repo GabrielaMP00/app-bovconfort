@@ -122,9 +122,9 @@ class _HomeState extends State<ITU_Simples> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
-                  //color: Colors.blue,
-                  height: screenHeight * .12,
-                  //margin: EdgeInsets.only(bottom: screenHeight * .03),
+                  //Æcolor: Colors.blue,
+                  height: screenHeight * .1,
+                  margin: EdgeInsets.only(top: screenHeight * .03),
                   child: Center(
                     child: Text("CALCULE O ITU",
                         style: TextStyle(
@@ -143,20 +143,20 @@ class _HomeState extends State<ITU_Simples> {
                             fontFamily: "OpenSans",
                             fontWeight: FontWeight.w600)),
                   )),
-              SizedBox(height: screenHeight * .05),
+              SizedBox(height: screenHeight * .02),
               Container(
-                margin: EdgeInsets.only(bottom: screenHeight * .03),
+                margin: EdgeInsets.only(bottom: screenHeight * .01),
                 child: Center(
                   child: Text("Temperatura média (ºC):",
                       style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 12.sp,
                           fontFamily: "OpenSans",
                           fontWeight: FontWeight.w800)),
                 ),
               ),
               SizedBox(
                 width: size.width * 0.4,
-                height: size.height * 0.1,
+                height: size.height * 0.08,
                 child: TextField(
                     controller: tmController,
                     keyboardType: TextInputType.number,
@@ -166,20 +166,20 @@ class _HomeState extends State<ITU_Simples> {
                         fillColor: Colors.white),
                     onChanged: (value) => checkInputFields()),
               ),
-              SizedBox(height: screenHeight * .05),
+              SizedBox(height: screenHeight * .03),
               Container(
-                margin: EdgeInsets.only(bottom: screenHeight * .03),
+                margin: EdgeInsets.only(bottom: screenHeight * .01),
                 child: Center(
                   child: Text("Umidade Relativa do Ar (%):",
                       style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: 12.sp,
                           fontFamily: "OpenSans",
                           fontWeight: FontWeight.w800)),
                 ),
               ),
               SizedBox(
                 width: size.width * 0.4,
-                height: size.height * 0.1,
+                height: size.height * 0.08,
                 child: TextField(
                     controller: urController,
                     keyboardType: TextInputType.number,
@@ -189,7 +189,7 @@ class _HomeState extends State<ITU_Simples> {
                         fillColor: Colors.white),
                     onChanged: (value) => checkInputFields()),
               ),
-              SizedBox(height: screenHeight * .1),
+              SizedBox(height: screenHeight * .3),
               Container(
                   width: size.width * .35,
                   height: screenHeight * .1,

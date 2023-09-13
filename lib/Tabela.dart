@@ -24,11 +24,10 @@ class _HomeState extends State<Tabela> {
         MediaQuery.of(context).padding.top;
     return Scaffold(
       appBar: appBar,
-      backgroundColor: Colors.teal[50],
       body: Center(
         child: InteractiveViewer(
           clipBehavior: Clip.none,
-          boundaryMargin: EdgeInsets.zero,
+          boundaryMargin: const EdgeInsets.all(double.infinity),
           minScale: 0.1,
           maxScale: 4.0,
           child: Image.asset(

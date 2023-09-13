@@ -1,41 +1,16 @@
-import 'package:appbovconfort/informaçoes.dart';
+import 'package:appbovconfort/informa%C3%A7oes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:mailto/mailto.dart';
 
 class Sobre_nos extends StatefulWidget {
   const Sobre_nos({super.key});
 
   @override
   State<Sobre_nos> createState() => _Sobre_nosState();
-}
-
-void _sendEmail() async {
-  String email = 'tecbovapp@gmail.com';
-  String subject = 'BovConfort';
-  String body = 'Olá';
-
-  String? encodeQueryParameters(Map<String, String> params) {
-    return params.entries
-        .map((e) =>
-            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
-        .join('&');
-  }
-
-  final Uri emailUri = Uri(
-    scheme: 'mailto',
-    path: email,
-    query: encodeQueryParameters(
-        <String, String>{'subject': subject, 'body': body}),
-  );
-
-  if (await canLaunchUrl(emailUri)) {
-    launchUrl(emailUri);
-  } else {
-    print("Não foi possível enviar e-mail.");
-  }
 }
 
 class _Sobre_nosState extends State<Sobre_nos> {
@@ -171,11 +146,33 @@ class _Sobre_nosState extends State<Sobre_nos> {
                               fontFamily: "OpenSans",
                               fontWeight: FontWeight.w700,
                             ))),
-                onPressed: () {
-                  _sendEmail();
+                onPressed: () async {
+                  String email = 'tecbovapp@gmail.com';
+                  String subject = 'BovConfort';
+                  String body = '';
+
+                  String? encodeQueryParameters(Map<String, String> params) {
+                    return params.entries
+                        .map((e) =>
+                            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                        .join('&');
+                  }
+
+                  final Uri emailUri = Uri(
+                    scheme: 'mailto',
+                    path: email,
+                    query: encodeQueryParameters(
+                        <String, String>{'subject': subject, 'body': body}),
+                  );
+
+                  if (await canLaunchUrl(emailUri)) {
+                    launchUrl(emailUri);
+                  } else {
+                    print("Não foi possível enviar e-mail.");
+                  }
                 },
                 icon: Icon(
-                  Icons.mail_outline,
+                  Icons.star,
                   size: 40,
                   color: Colors.black,
                 ),

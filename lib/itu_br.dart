@@ -197,8 +197,8 @@ class _HomeState extends State<ITU_BR> {
                 children: <Widget>[
               Container(
                 // color: Colors.blue,
-                height: screenHeight * .15,
-                //margin: EdgeInsets.only(bottom: screenHeight * .03),
+                height: screenHeight * .1,
+                margin: EdgeInsets.only(top: screenHeight * .02),
 
                 child: Text("CALCULE O ITU",
                     style: TextStyle(
@@ -209,7 +209,6 @@ class _HomeState extends State<ITU_BR> {
               Container(
                 //color: Colors.green,
                 height: screenHeight * .1,
-                margin: EdgeInsets.only(bottom: screenHeight * .01),
 
                 child: Text("Insira os dados abaixo:",
                     style: TextStyle(
@@ -225,7 +224,7 @@ class _HomeState extends State<ITU_BR> {
                         style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(
                       width: size.width * 0.4,
-                      height: size.height * 0.1,
+                      height: size.height * 0.08,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -247,7 +246,7 @@ class _HomeState extends State<ITU_BR> {
                         style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(
                       width: size.width * 0.4,
-                      height: size.height * 0.1,
+                      height: size.height * 0.08,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -265,7 +264,7 @@ class _HomeState extends State<ITU_BR> {
                   ]),
                 ],
               ),
-              SizedBox(height: size.height * 0.05),
+              SizedBox(height: size.height * 0.03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -274,7 +273,7 @@ class _HomeState extends State<ITU_BR> {
                         style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(
                       width: size.width * 0.4,
-                      height: size.height * 0.1,
+                      height: size.height * 0.08,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -296,7 +295,7 @@ class _HomeState extends State<ITU_BR> {
                         style: TextStyle(fontWeight: FontWeight.w600)),
                     SizedBox(
                       width: size.width * 0.4,
-                      height: size.height * 0.1,
+                      height: size.height * 0.08,
                       child: TextField(
                         keyboardType: TextInputType.number,
                         inputFormatters: [
@@ -314,13 +313,13 @@ class _HomeState extends State<ITU_BR> {
                   ]),
                 ],
               ),
-              SizedBox(height: size.height * 0.1),
+              SizedBox(height: size.height * 0.2),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
                       width: size.width * .4,
-                      height: screenHeight * .1,
+                      height: screenHeight * 0.1,
                       //margin: EdgeInsets.only(bottom: screenHeight*.12),
                       child: ElevatedButton.icon(
                         style: botaoAdicionar,

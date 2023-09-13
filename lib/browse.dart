@@ -95,7 +95,8 @@ class _HomeState extends State<Browse> {
                                 fontSize: 18.sp, fontWeight: FontWeight.w800)),
                       )),
                   Container(
-                    width: size.width * .8,
+                    width: size.width * .85,
+                    padding: EdgeInsets.all(5),
                     height: screenHeight * .05,
                     color: Colors.red[200],
                     alignment: Alignment.center,

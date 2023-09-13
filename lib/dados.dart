@@ -8,9 +8,6 @@ import 'package:appbovconfort/efeito_stress.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:appbovconfort/mitigar_efeitos.dart';
 
-final Uri _url =
-    Uri.parse('https://www.agricultura.rs.gov.br/agrometeorologia');
-
 class Dados extends StatefulWidget {
   const Dados({super.key});
 
@@ -124,7 +121,10 @@ class _HomeState extends State<Dados> {
                         Column(children: [
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
-                              onPressed: _launchUrl,
+                              onPressed: () {
+                                launchUrl(Uri.parse(
+                                    'https://www.agricultura.rs.gov.br/agrometeorologia'));
+                              },
                               child: Image(
                                 image: AssetImage("assets/book.png"),
                                 height: size.height * .1,
@@ -141,9 +141,5 @@ class _HomeState extends State<Dados> {
                         ])
                       ]),
                 ])));
-  }
-
-  void _launchUrl() async {
-    if (!await launchUrl(_url)) throw 'Could not Open $_url';
   }
 }

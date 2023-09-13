@@ -53,6 +53,7 @@ class Faixa3 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
+                padding: EdgeInsets.all(5),
                   width: size.width * .8,
                   height: screenHeight * .15,
                   decoration: BoxDecoration(

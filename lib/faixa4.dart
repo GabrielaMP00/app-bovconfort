@@ -50,6 +50,7 @@ class Faixa4 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Container(
+                padding: EdgeInsets.all(5),
                   width: size.width * .8,
                   height: screenHeight * .15,
                   decoration: BoxDecoration(
@@ -66,7 +67,7 @@ class Faixa4 extends StatelessWidget {
                             child: new Image.asset("assets/cuidado.png")),
                         SizedBox(width: size.width * .02),
                         Container(
-                            child: Text("SITUAÇÃO DE PERIGO!",
+                            child: Text("SITUAÇÃO \nDE PERIGO!",
                                 style: TextStyle(
                                     fontSize: 15.sp,
                                     fontWeight: FontWeight.w800)))
