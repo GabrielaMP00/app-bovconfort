@@ -1,8 +1,10 @@
+import 'package:appbovconfort/informa%C3%A7oes.dart';
 import 'package:flutter/material.dart';
 import 'package:appbovconfort/browse.dart';
 import 'package:sizer/sizer.dart';
 import 'package:appbovconfort/itu_simples.dart';
 import 'package:appbovconfort/localizacao.dart';
+import 'package:appbovconfort/passos_br.dart';
 
 class Internet extends StatefulWidget {
   const Internet({super.key});
@@ -35,12 +37,11 @@ class _HomeState extends State<Internet> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            child: Center (child: const Text(
+            child: Center(
+                child: const Text(
               "Você está com acesso à internet?",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black),
+              style: TextStyle(fontSize: 25, color: Colors.black),
             )),
           ),
           const SizedBox(height: 50),
@@ -63,7 +64,7 @@ class _HomeState extends State<Internet> {
                           ))),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Localizacao()));
+                    MaterialPageRoute(builder: (context) => const Passos_BR()));
               },
               child: const Text("Sim")),
           const SizedBox(height: 30),
@@ -85,8 +86,10 @@ class _HomeState extends State<Internet> {
                             fontWeight: FontWeight.w700,
                           ))),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ITU_Simples()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ITU_Simples()));
               },
               child: const Text("Não"))
         ],

@@ -42,6 +42,7 @@ class _HomeState extends State<ITU_BR> {
   TextEditingController maxHumidityController = TextEditingController();
 
   bool isButtonDisabled = true;
+  bool isSecondButtonVisible = false;
   int valueCount = 0;
 
   double calculateAverageTemperature() {
@@ -121,7 +122,59 @@ class _HomeState extends State<ITU_BR> {
     }
   }
 
+  void showConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirmação'),
+          content: Text('Você adicionou $valueCount valor(es). Deseja calcular o ITU agora?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancelar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Calcular'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                calculateITU();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void addValues() {
+
+    if (minTempController.text.isEmpty ||
+        maxTempController.text.isEmpty ||
+        minHumidityController.text.isEmpty ||
+        maxHumidityController.text.isEmpty) {
+      // Exiba um pop-up informando ao usuário para inserir todos os valores
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Atenção'),
+            content: Text('Por favor, insira todos os valores.'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+      return; // Saia da função sem adicionar os valores se algum campo estiver vazio
+    }
     double minTemp = double.parse(minTempController.text);
     double maxTemp = double.parse(maxTempController.text);
     double minHumidity = double.parse(minHumidityController.text);
@@ -138,6 +191,7 @@ class _HomeState extends State<ITU_BR> {
 
       if (valueCount == 1) {
         isButtonDisabled = false;
+        isSecondButtonVisible = true;
       }
 
       if (valueCount >= 5) {
@@ -336,23 +390,31 @@ class _HomeState extends State<ITU_BR> {
                             )),
                       )),
                   SizedBox(width: size.width * .05),
-                  Container(
+                  Visibility(
+                    visible: isSecondButtonVisible,
+                    child: Container(
                       width: size.width * .4,
                       height: screenHeight * .1,
                       child: ElevatedButton.icon(
                         style: botaoCalcular,
-                        onPressed: isButtonDisabled ? null : calculateITU,
+                        onPressed: isButtonDisabled
+                            ? null
+                            : () => showConfirmationDialog(),
                         icon: Icon(
                           Icons.check,
                           size: 20,
                         ),
-                        label: Text('Calcular',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 10.sp,
-                              fontWeight: FontWeight.w800,
-                            )),
-                      )),
+                        label: Text(
+                          'Calcular',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Padding(

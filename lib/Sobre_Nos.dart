@@ -258,15 +258,7 @@ class _Sobre_nosState extends State<Sobre_nos> {
               children: [
                 Flexible(
                   child: Image.asset(
-                    "assets/GovernoRS_logo-removebg-preview.png",
-                    height: 89.5,
-                    width: 89.5,
-                  ),
-                ),
-                SizedBox(width: 4.0),
-                Flexible(
-                  child: Image.asset(
-                    "assets/DDPA_logo-removebg-preview.png",
+                    "assets/Logo__Biometeoro.png",
                     height: 89.5,
                     width: 89.5,
                   ),
@@ -282,7 +274,15 @@ class _Sobre_nosState extends State<Sobre_nos> {
                 SizedBox(width: 4.0),
                 Flexible(
                   child: Image.asset(
-                    "assets/Logo__Biometeoro.png",
+                    "assets/DDPA_logo-removebg-preview.png",
+                    height: 89.5,
+                    width: 89.5,
+                  ),
+                ),
+                SizedBox(width: 4.0),
+                 Flexible(
+                  child: Image.asset(
+                    "assets/brasao_colorido.png",
                     height: 89.5,
                     width: 89.5,
                   ),

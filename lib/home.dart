@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:appbovconfort/sobre.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:sizer/sizer.dart';
+import 'package:sizer/sizer.dart';  
 import 'package:appbovconfort/faixa1.dart';
 
 class Home extends StatefulWidget {
@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
                   'Descubra como evitar o desconforto\ntérmico em vacas de leite.',
                   textAlign: TextAlign.center,
                   style:
-                      TextStyle(fontWeight: FontWeight.w800,fontSize: 14.sp)),
+                      TextStyle(fontWeight: FontWeight.w800,fontSize: MediaQuery.of(context).size.width * 0.04)),
             )),
             Container(
                 width: size.width * .9,
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                 child: Center(
                     child:  Text(
                           'O objetivo do BovConfort é fornecer ferramentas para que criadores e profissionais das Ciências Agrárias possam identificar situações de estresse térmico para os animais, estabelecer estratégias de manejo para minimizar seus efeitos e estimar as perdas na produção de leite de uma forma objetiva e ágil.',
-                          style: TextStyle(fontSize: 15.sp),
+                          style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.05),
                           textAlign: TextAlign.justify,
                       
                     ))),

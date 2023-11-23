@@ -122,8 +122,10 @@ class _HomeState extends State<Dados> {
                           FloatingActionButton.large(
                               backgroundColor: Color.fromRGBO(136, 221, 198, 1),
                               onPressed: () {
-                                launchUrl(Uri.parse(
-                                    'https://www.agricultura.rs.gov.br/agrometeorologia'));
+                                const url =
+                                    'https://www.agricultura.rs.gov.br/agrometeorologia';
+                                launch(url,
+                                    forceWebView: false, forceSafariVC: false);
                               },
                               child: Image(
                                 image: AssetImage("assets/book.png"),
