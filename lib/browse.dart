@@ -47,9 +47,9 @@ class _HomeState extends State<Browse> {
                   Container(
                     height: screenHeight * .12,
                     margin: EdgeInsets.only(bottom: screenHeight * .03),
-                    child: Text("O que você deseja fazer?",
+                    child: Text("O QUE VOCÊ DESEJA FAZER?",
                         style:
-                            TextStyle(fontSize: 20.sp, fontFamily: "OpenSans")),
+                            TextStyle(fontSize: 18.sp, fontFamily: "OpenSans",fontWeight: FontWeight.bold)),
                   ),
                   Container(
                       width: size.width * .7,
@@ -95,8 +95,8 @@ class _HomeState extends State<Browse> {
                                 fontSize: 18.sp, fontWeight: FontWeight.w800)),
                       )),
                   Container(
-                    width: size.width * .85,
-                    padding: EdgeInsets.all(5),
+                    width: size.width * .7,
+                    padding: const EdgeInsets.all(4),
                     height: screenHeight * .05,
                     color: Colors.red[200],
                     alignment: Alignment.center,
@@ -104,7 +104,7 @@ class _HomeState extends State<Browse> {
                       'ITU = Índice de Temperatura e Umidade',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 10.sp,
                         fontStyle: FontStyle.italic,
                         fontFamily: "OpenSans",
                         fontWeight: FontWeight.w700,

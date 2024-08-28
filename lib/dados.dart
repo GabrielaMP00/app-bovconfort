@@ -39,6 +39,21 @@ class _HomeState extends State<Dados> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+            Container(
+             // color: Colors.teal[100],
+              padding: EdgeInsets.only(bottom: size.height * 0.05),
+              child: Text(
+                'SELECIONE UMA OPÇÃO:',
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          SizedBox(
+            height: size.height * 0.03
+          ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [

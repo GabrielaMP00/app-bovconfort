@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
             Container(
               height: screenHeight * .1,
               width: MediaQuery.of(context).size.width * 0.9,
-              margin: EdgeInsets.only(top: screenHeight*.02),
+              margin: EdgeInsets.only(top: screenHeight*.01),
               child: Center(child:Text(
                   'Descubra como evitar o desconforto\ntérmico em vacas de leite.',
                   textAlign: TextAlign.center,
@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
             )),
             Container(
                 width: size.width * .9,
-                height: screenHeight * .55,
+                height: screenHeight * .6,
                 margin: EdgeInsets.only(top: screenHeight*.03),
                 color: Color.fromRGBO(136, 221, 198, 1),
                 padding: EdgeInsets.all(20),

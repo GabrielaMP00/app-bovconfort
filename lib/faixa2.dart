@@ -92,7 +92,7 @@ class Faixa2 extends StatelessWidget {
               Container(
                   height: screenHeight * .05,
                   child: Center(
-                    child: Text("ITU2 = 71 - 75", textAlign: TextAlign.center,
+                    child: Text("ITU > 71 ≤ 75", textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 15.sp,
                             fontFamily: "OpenSans",

@@ -1,19 +1,17 @@
 import 'package:appbovconfort/informa%C3%A7oes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:sizer/sizer.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mailto/mailto.dart';
 
-class Sobre_nos extends StatefulWidget {
-  const Sobre_nos({super.key});
+class SobreNos extends StatefulWidget {
+  const SobreNos({Key? key}) : super(key: key);
 
   @override
-  State<Sobre_nos> createState() => _Sobre_nosState();
+  State<SobreNos> createState() => _SobreNosState();
 }
 
-class _Sobre_nosState extends State<Sobre_nos> {
+class _SobreNosState extends State<SobreNos> {
   @override
   Widget build(BuildContext context) {
     var appBar = AppBar(
@@ -21,276 +19,245 @@ class _Sobre_nosState extends State<Sobre_nos> {
       title: Image.asset("assets/novologo.png", height: 30.sp),
       centerTitle: true,
     );
-    var size = MediaQuery.of(context).size;
-    var screenHeight = (size.height - appBar.preferredSize.height) -
-        MediaQuery.of(context).padding.top;
-    final screenSize = MediaQuery.of(context).size;
-    final buttonWidth = screenSize.width * 0.69;
-    final buttonHeight = screenSize.height * 0.09;
+
+    var screenSize = MediaQuery.of(context).size;
+    var buttonWidth = screenSize.width * 0.69;
+    var buttonHeight = screenSize.height * 0.09;
+
     return Scaffold(
       backgroundColor: Colors.teal[50],
       appBar: appBar,
       body: Column(
         children: [
-          SizedBox(
-            height: 15.0,
-          ),
-          const Text(
-            "Informações",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w800,
-              fontFamily: "OpenSans-Regular",
+          SizedBox(height: screenSize.height * 0.08),
+          Container(
+            alignment: Alignment.center,
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                minimumSize: Size(buttonWidth, buttonHeight),
+                backgroundColor: const Color(0xff88ddc6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => informacoes(index: 1),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.people,
+                size: 35,
+              ),
+              label: const Text(
+                "Equipe",
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
-          SizedBox(
-            height: 25.0,
-          ),
+          SizedBox(height: screenSize.height * 0.03),
           Container(
             alignment: Alignment.center,
             child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.resolveWith<Size?>(
-                        (states) => Size(buttonWidth, buttonHeight)),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder?>(
-                        (states) => RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Color(0xff88ddc6)),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Colors.white),
-                    textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                        (states) => TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                            ))),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => informacoes(
-                                index: 1,
-                              )));
-                },
-                icon: Icon(
-                  Icons.people,
-                  size: 40,
-                  color: Colors.black,
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                minimumSize: Size(buttonWidth, buttonHeight),
+                backgroundColor: const Color(0xff88ddc6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: const Text(
-                  "Equipe",
-                  style: TextStyle(color: Colors.black),
-                )),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => informacoes(index: 2),
+                  ),
+                );
+              },
+              icon: const Icon(
+                Icons.notes,
+                size: 35,
+              ),
+              label: const Text(
+                "Bibliografia",
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ),
-          SizedBox(
-            height: 20.0,
-          ),
+          SizedBox(height: screenSize.height * 0.03),
           Container(
             alignment: Alignment.center,
             child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.resolveWith<Size?>(
-                        (states) => Size(buttonWidth, buttonHeight)),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder?>(
-                        (states) => RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Color(0xff88ddc6)),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Colors.white),
-                    textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                        (states) => TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                            ))),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => informacoes(
-                                index: 2,
-                              )));
-                },
-                icon: Icon(
-                  Icons.notes,
-                  size: 40,
-                  color: Colors.black,
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                minimumSize: Size(buttonWidth, buttonHeight),
+                backgroundColor: const Color(0xff88ddc6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: const Text(
-                  "Bibliografia",
-                  style: TextStyle(color: Colors.black),
-                )),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          Container(
-            alignment: Alignment.center,
-            child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.resolveWith<Size?>(
-                        (states) => Size(buttonWidth, buttonHeight)),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder?>(
-                        (states) => RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Color(0xff88ddc6)),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Colors.white),
-                    textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                        (states) => TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                            ))),
-                onPressed: () async {
-                  String email = 'tecbovapp@gmail.com';
-                  String subject = 'BovConfort';
-                  String body = '';
+              ),
+               onPressed: () async {
+                String email = 'tecbovapp@gmail.com';
+                String subject = 'Aplicativo Bovconfort';
+                String body = 'Olá';
 
-                  String? encodeQueryParameters(Map<String, String> params) {
-                    return params.entries
-                        .map((e) =>
-                            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
-                        .join('&');
-                  }
+                String? encodeQueryParameters(Map<String, String> params) {
+                  return params.entries
+                      .map((e) =>
+                          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                      .join('&');
+                }
 
-                  final Uri emailUri = Uri(
-                    scheme: 'mailto',
-                    path: email,
-                    query: encodeQueryParameters(
-                        <String, String>{'subject': subject, 'body': body}),
-                  );
+                final Uri emailUri = Uri(
+                  scheme: 'mailto',
+                  path: email,
+                  query: encodeQueryParameters(
+                      <String, String>{'subject': subject, 'body': body}),
+                );
 
-                  if (await canLaunchUrl(emailUri)) {
-                    launchUrl(emailUri);
-                  } else {
-                    print("Não foi possível enviar e-mail.");
-                  }
-                },
-                icon: Icon(
-                  Icons.star,
-                  size: 40,
-                  color: Colors.black,
-                ),
-                label: const Text(
-                  "Fale Conosco",
-                  style: TextStyle(color: Colors.black),
-                )),
+                if (await canLaunchUrl(emailUri)) {
+                  launchUrl(emailUri);
+                } else {
+                  print("Não foi possível enviar e-mail.");
+                }
+              },
+              icon: const Icon(
+                Icons.mail,
+                size: 35,
+              ),
+              label: const Text(
+                "Fale Conosco",
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ),
-          SizedBox(
-            height: 20.0,
-          ),
+          SizedBox(height: screenSize.height * 0.03),
           Container(
             alignment: Alignment.center,
             child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.resolveWith<Size?>(
-                        (states) => Size(buttonWidth, buttonHeight)),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder?>(
-                        (states) => RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Color(0xff88ddc6)),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Colors.white),
-                    textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                        (states) => TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                            ))),
-                onPressed: () {},
-                icon: Icon(
-                  Icons.send,
-                  size: 25,
-                  color: Colors.black,
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                minimumSize: Size(buttonWidth, buttonHeight),
+                backgroundColor: const Color(0xff88ddc6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: const Text(
-                  "Compartilhar App",
-                  style: TextStyle(color: Colors.black),
-                )),
+              ),
+              onPressed: () async {
+                const urlApp =
+                    'https://play.google.com/store/apps/details?id=ddpaseapi.gov.br.bovconfort&pli=1';
+                await Share.share('Compartilhe o aplicativo Bovconfort!\n\n$urlApp');},
+              icon: const Icon(
+                Icons.share,
+                size: 30,
+              ),
+              label: const Text(
+                "Compartilhar App",
+                style: TextStyle(fontSize: 14),
+              ),
+            ),
           ),
-          SizedBox(
-            height: 20.0,
-          ),
+          SizedBox(height: screenSize.height * 0.03),
           Container(
             margin: EdgeInsets.only(bottom: 10.0),
             alignment: Alignment.center,
             child: ElevatedButton.icon(
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.resolveWith<Size?>(
-                        (states) => Size(buttonWidth, buttonHeight)),
-                    shape: MaterialStateProperty.resolveWith<OutlinedBorder?>(
-                        (states) => RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Color(0xff88ddc6)),
-                    foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                        (states) => Colors.white),
-                    textStyle: MaterialStateProperty.resolveWith<TextStyle>(
-                        (states) => TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                            ))),
-                onPressed: () {
-                  launchUrl(Uri.parse(
-                      'https://docs.google.com/forms/d/e/1FAIpQLSeldnhyKP30LPIjmQgHd5U_rBhaCmev9JR_QV6ZeeeiEgF6vA/viewform?usp=sf_link'));
-                },
-                icon: Icon(
-                  Icons.star,
-                  size: 40,
-                  color: Colors.black,
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                minimumSize: Size(buttonWidth, buttonHeight),
+                backgroundColor: const Color(0xff88ddc6),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: const Text(
-                  "Avalie-nos",
-                  style: TextStyle(color: Colors.black),
-                )),
+              ),
+              onPressed: () {
+                launch(
+                  Uri.parse(
+                    'https://docs.google.com/forms/d/e/1FAIpQLSeldnhyKP30LPIjmQgHd5U_rBhaCmev9JR_QV6ZeeeiEgF6vA/viewform?usp=sf_link',
+                  ).toString(),
+                );
+              },
+              icon: const Icon(
+                Icons.star,
+                size: 35,
+              ),
+              label: const Text(
+                "Avalie-nos",
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ),
+          SizedBox(height: screenSize.height * 0.02),
           Container(
             height: 60.0,
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Flexible(
                   child: Image.asset(
                     "assets/Logo__Biometeoro.png",
-                    height: 89.5,
-                    width: 89.5,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
-                SizedBox(width: 4.0),
+                SizedBox(width: 10),
                 Flexible(
                   child: Image.asset(
                     "assets/Fapergs_logo.png",
-                    height: 89.5,
-                    width: 89.5,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
-                SizedBox(width: 4.0),
+                SizedBox(width: 10),
                 Flexible(
                   child: Image.asset(
                     "assets/DDPA_logo-removebg-preview.png",
-                    height: 89.5,
-                    width: 89.5,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
-                SizedBox(width: 4.0),
-                 Flexible(
+                SizedBox(width: 10),
+                Flexible(
                   child: Image.asset(
                     "assets/brasao_colorido.png",
-                    height: 89.5,
-                    width: 89.5,
+                    height: 80,
+                    width: 80,
                   ),
                 ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+ 
+}
+
+class Informacoes extends StatelessWidget {
+  final int index;
+
+  const Informacoes({required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(index == 1 ? "Equipe" : "Bibliografia"),
+      ),
+      body: Center(
+        child: Text(
+          index == 1
+              ? "Informações da Equipe aqui..."
+              : "Bibliografia aqui...",
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
   }

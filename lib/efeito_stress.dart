@@ -19,22 +19,49 @@ class _HomeState extends State<Efeito_Stress> {
         color: Colors.teal[50],
       ),
     );
-    var size = MediaQuery.of(context).size;
-    var screenHeight = (size.height - appBar.preferredSize.height) -
-        MediaQuery.of(context).padding.top;
+
     return Scaffold(
-      appBar: appBar,
       backgroundColor: Colors.teal[50],
-      body: Center(
-        child: InteractiveViewer(
-          clipBehavior: Clip.none,
-          boundaryMargin: EdgeInsets.zero,
-          minScale: 0.1,
-          maxScale: 4.0,
-          child: Image.asset(
-            'assets/Estresse_Térmico.png',
+      appBar: appBar,
+      body: Column(
+        children: <Widget>[
+          // Title with icon at the top
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.screen_rotation, // Round arrow icon
+                  size: 24.0,
+                  color: Colors.black, // Adjust color if necessary
+                ),
+                SizedBox(width: 8.0),
+                Text(
+                  'Vire o celular',
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Adjust color if necessary
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+          // Expanded image with InteractiveViewer
+          Expanded(
+            child: InteractiveViewer(
+              clipBehavior: Clip.none,
+              minScale: 1.0, // Start with the normal scale
+              maxScale: 4.0, // Maximum zoom level
+              constrained: true,
+              child: Image.asset(
+                'assets/Estresse_Térmico.png', // Your image asset
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
